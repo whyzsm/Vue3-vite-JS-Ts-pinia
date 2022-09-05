@@ -1,14 +1,38 @@
 <script setup lang="ts">
-import { ref,Ref,isRef } from 'vue'
+import { ref,Ref,isRef,reactive,toRef,toRefs } from 'vue'
 
 defineProps<{ msg: string }>()
 
 const count = ref(0);
+
+type Person = {
+  list?:Array<number>
+}
+let person = reactive<Person>({
+   list:[]
+})
 // let message:string='aa'
 let message:Ref<string>=ref('zsm');
+  let objt =reactive<number[]>([4,5]);
+  let boj=reactive({name:'zsm',age:11});
+  // let {name,age}=boj;
+  const {name:eag,age:re}=toRefs(boj);
+  // const age=toRef(boj,'age')
 const changeMsg=()=>{
   message.value='花花同学会';
+  // objt.name='eryt';
   console.log('message',message)
+  setTimeout(()=>{
+    let arr=[1,2,3,4];
+    objt.push(...arr);
+    person.list=[3,45,6,7]
+    // objt=arr;
+    console.log('objt',objt)
+    // age.value=23;
+    // name='123'
+    eag.value='er'
+    re.value=234;
+  },500)
 }
 </script>
 
@@ -16,7 +40,9 @@ const changeMsg=()=>{
   <!-- <h1>{{ msg }}</h1> -->
   <div>
     <button @click="changeMsg">change</button>
-    <div>{{ message }}</div>
+    <div>{{ message }}{{objt}}</div>
+    <div>{{person}}</div>
+    <div>{{eag}}{{re}}</div>
   </div>
 
   <!-- <p>

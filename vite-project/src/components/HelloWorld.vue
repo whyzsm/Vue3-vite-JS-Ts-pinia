@@ -1,5 +1,5 @@
 <script setup >
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 
 defineProps({
   msg: String
@@ -22,10 +22,12 @@ const cls={
   bb:false,
 }
 const Arr=[1,2,3];
-
+// let fistName=
 
 const count = ref(0)
-
+// const aa=computed({
+//   return 
+// })
 </script>
 
 <template>
@@ -42,7 +44,7 @@ const count = ref(0)
  
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .read-the-docs {
   color: #888;
 }

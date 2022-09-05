@@ -1,31 +1,62 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <a-form
+    layout="inline"
+    :model="formState"
+    @finish="handleFinish"
+    @finishFailed="handleFinishFailed"
+  >
+    <a-form-item>
+      <a-input v-model:value="formState.user" placeholder="Username">
+        <template #prefix><UserOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
+      </a-input>
+    </a-form-item>
+    <a-form-item>
+      <a-input v-model:value="formState.password" type="password" placeholder="Password">
+        <template #prefix><LockOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
+      </a-input>
+    </a-form-item>
+    <a-form-item>
+      <a-button
+        type="primary"
+        html-type="submit"
+        :disabled="formState.user === '' || formState.password === ''"
+      >
+        Log in
+      </a-button>
+    </a-form-item>
+  </a-form>
 </template>
+<script lang="ts">
+import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import { defineComponent, reactive } from 'vue';
+import type { UnwrapRef } from 'vue';
+import type { FormProps } from 'ant-design-vue';
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+interface FormState {
+  user: string;
+  password: string;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+export default defineComponent({
+  components: {
+    UserOutlined,
+    LockOutlined,
+  },
+  setup() {
+    const formState: UnwrapRef<FormState> = reactive({
+      user: '',
+      password: '',
+    });
+    const handleFinish: FormProps['onFinish'] = values => {
+      console.log(values, formState);
+    };
+    const handleFinishFailed: FormProps['onFinishFailed'] = errors => {
+      console.log(errors);
+    };
+    return {
+      formState,
+      handleFinish,
+      handleFinishFailed,
+    };
+  },
+});
+</script>
