@@ -3,17 +3,13 @@ import { ref,reactive, Ref, isRef, shallowRef, triggerRef } from "vue";
 import { useUserStore } from "../store/user";
 import { storeToRefs } from "pinia";
 const userStore = useUserStore();
-console.log("userStore.formdata");
 // formdata: {iptName:'input',seltName:'全部'},
 const { formdata } = storeToRefs(userStore);
 console.log('formdata',formdata.value)
-// const labelCol = reactive({ style: { width: '100px' } });
-// const { iptName, seltName } =reactive(formdata);
-// console.log("iptName", iptName);
 defineProps<{ msg: string }>();
 const onClick = () => {
   userStore.updateName("李四");
-  userStore.iptUpadataName({});
+  userStore.iptUpadataName();
 };
 let count: Ref<number> = ref(0);
 //

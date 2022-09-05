@@ -10,9 +10,8 @@ export const useUserStore = defineStore({
     updateName(name: string) {
       this.name = name;
     },
-    iptUpadataName(iptName: any) {
-      console.log('iptName',iptName)
-      this.formdata = data;
+    iptUpadataName() {
+      this.formdata =data ;
     }
   }
 
