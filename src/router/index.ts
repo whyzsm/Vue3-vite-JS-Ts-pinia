@@ -1,71 +1,60 @@
-// 引入vue-router对象
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory,createWebHistory } from 'vue-router'
+import type { RouteRecordNormalized } from 'vue-router'
+import { getToken } from '../utils/auth'
+import { DEFAULT_LAYOUT } from './base'
+
+// 路由模块化自动导入
+const modules = import.meta.globEager('./modules/*.ts')
+
+function formatModules(_modules: any, result: RouteRecordNormalized[]) {
+  Object.keys(_modules).forEach((key) => {
+    const defaultModule = _modules[key].default
+    if (!defaultModule) return
+    const moduleList = Array.isArray(defaultModule) ? [...defaultModule] : [defaultModule]
+    result.push(...moduleList)
+  })
+  return result
+}
+
+export const appRoutes: RouteRecordNormalized[] = formatModules(modules, [])
 
 const routes = [
-  // {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: () => import('@/views/login/index.vue')
-  // },
   {
     path: '/',
     redirect: '/home',
-    component: () => import('@/layout/index.vue'),
+    // path: '/layout',
+    name: 'Layout',
+    component: DEFAULT_LAYOUT,
     children: [
       {
-        path: '/home',
+        path: 'home',
         name: 'Home',
         component: () => import('@/views/home/index.vue'),
         meta: { title: '首页', keepAlive: false }
       },
-      // {
-      //   path: '/indicator-manage',
-      //   name: 'IndicatorManage',
-      //   component: () => import('@/views/indicator-manage/main/index.vue'),
-      //   meta: { title: '指标管理', keepAlive: false }
-      // },
-      // {
-      //   path: '/indicator-manage/detail',
-      //   name: 'IndicatorManageDetail',
-      //   component: () => import('@/views/indicator-manage/detail/index.vue'),
-      //   meta: { title: '指标管理-详情', keepAlive: false }
-      // },
-      // {
-      //   path: '/user',
-      //   name: 'user',
-      //   component: () => import('@/views/user/index.vue'),
-      //   meta: { title: '用户中心', keepAlive: false }
-      // }
     ]
-  }
+  },
+  // ...appRoutes
 ]
 
-/**
- * 创建路由
- */
 const router = createRouter({
-  // hash模式：createWebHashHistory，
-  // history模式：createWebHistory
-  history: createWebHistory('/'),
-  // history:createWebHashHistory(),
-  routes
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes,
+  scrollBehavior: () => ({ left: 0, top: 0 })
 })
 
-/**
- * 路由守卫
- */
-// router.beforeEach((guard) => {
-//   beforeEach.checkAuth(guard, router)
+// 没有login先注释掉
+// router.beforeEach((to, from, next) => {
+//   if (to.path === '/login') {
+//     next()
+//   } else {
+//     const token = getToken()
+//     if (!token) {
+//       next('/login')
+//     } else {
+//       next()
+//     }
+//   }
 // })
 
-/**
- * 路由错误回调
- */
-router.onError((handler) => {
-  console.log('error:', handler)
-})
-
-/**
- * 输出对象
- */
 export default router
