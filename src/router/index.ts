@@ -2,11 +2,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('@/views/login/index.vue')
-  },
+  // {
+  //   path: '/login',
+  //   name: 'Login',
+  //   component: () => import('@/views/login/index.vue')
+  // },
   {
     path: '/',
     redirect: '/home',
@@ -18,24 +18,24 @@ const routes = [
         component: () => import('@/views/home/index.vue'),
         meta: { title: '首页', keepAlive: false }
       },
-      {
-        path: '/indicator-manage',
-        name: 'IndicatorManage',
-        component: () => import('@/views/indicator-manage/main/index.vue'),
-        meta: { title: '指标管理', keepAlive: false }
-      },
-      {
-        path: '/indicator-manage/detail',
-        name: 'IndicatorManageDetail',
-        component: () => import('@/views/indicator-manage/detail/index.vue'),
-        meta: { title: '指标管理-详情', keepAlive: false }
-      },
-      {
-        path: '/user',
-        name: 'user',
-        component: () => import('@/views/user/index.vue'),
-        meta: { title: '用户中心', keepAlive: false }
-      }
+      // {
+      //   path: '/indicator-manage',
+      //   name: 'IndicatorManage',
+      //   component: () => import('@/views/indicator-manage/main/index.vue'),
+      //   meta: { title: '指标管理', keepAlive: false }
+      // },
+      // {
+      //   path: '/indicator-manage/detail',
+      //   name: 'IndicatorManageDetail',
+      //   component: () => import('@/views/indicator-manage/detail/index.vue'),
+      //   meta: { title: '指标管理-详情', keepAlive: false }
+      // },
+      // {
+      //   path: '/user',
+      //   name: 'user',
+      //   component: () => import('@/views/user/index.vue'),
+      //   meta: { title: '用户中心', keepAlive: false }
+      // }
     ]
   }
 ]

@@ -3,7 +3,7 @@ import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 
 
-export const setArcoVue = (app) => {
+export const setArcoVue = (app:any) => {
   app.use(ArcoVue)
   app.use(ArcoVueIcon)
 }

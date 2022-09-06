@@ -1,12 +1,14 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
-import store from './store'
+import router from './router'
+import { setupStore } from './store';
+// import store from './store'
 import Antd from 'ant-design-vue';
+import { setArcoVue } from './plugins/arco-vue-plugin'
 // import ArcoVue from '@arco-design/web-vue';
 import 'ant-design-vue/dist/antd.css'
 import '@arco-design/web-vue/dist/arco.css'
-import { setArcoVue } from './plugins/arco-vue-plugin'
+import './style.css'
 
 
 
@@ -18,5 +20,10 @@ import { setArcoVue } from './plugins/arco-vue-plugin'
 const app = createApp(App)
 
 
+
+app.use(router)
+// app.use(store)
+app.use(Antd)
 setArcoVue(app)
-app.use(store).use(Antd).mount('#app')
+setupStore(app)
+app.mount('#app')

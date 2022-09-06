@@ -17,7 +17,7 @@
           <a-doption>
             <template #icon><icon-user /></template><span style="margin-left: 4px">个人中心</span>
           </a-doption>
-          <a-doption @click="logout">
+          <a-doption >
             <template #icon><icon-export /></template><span style="margin-left: 4px">退出登录</span>
           </a-doption>
         </template>
@@ -25,6 +25,7 @@
     </section>
   </a-layout-header>
 </template>
+
 <script lang="ts" setup>
   import { computed, ref } from '@vue/reactivity'
   import { Modal } from '@arco-design/web-vue'
@@ -34,8 +35,7 @@
   
   const changeTheme = () => {
     let theme = document.body.getAttribute('arco-theme')
-    light.value = theme
-  
+    // light.value = theme
     if(!theme) {
       // 设置暗黑主题
       document.body.setAttribute('arco-theme', 'dark')

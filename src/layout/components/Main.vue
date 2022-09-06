@@ -8,6 +8,7 @@
     <router-view></router-view>
   </a-layout>
 </template>
+
 <script lang="ts" setup>
   import { computed } from 'vue'
   import { useRoute } from 'vue-router'
@@ -16,3 +17,4 @@
   const key = computed(() => route.path)
   
   </script>
+  
