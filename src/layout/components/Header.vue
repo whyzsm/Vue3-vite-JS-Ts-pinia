@@ -1,46 +1,43 @@
 <template>
-  <a-layout-header>
-    <section class="sys-name">管理系统</section>
-    <section class="sys-head">
-      <!-- 改变主题色 -->
-      <a-button size="mini" @click="changeTheme" :style="{ marginRight: '10px' }">
-        <template #icon>
-          <icon-sun-fill v-if="light" />
-          <icon-moon-fill v-else />
-        </template>
-      </a-button>
-      <!-- 头像 -->
-      <a-avatar :size="32" :style="{ marginRight: '8px' }">A</a-avatar>
-      <a-dropdown trigger="hover">
-        <a-button type="text">admin</a-button>
-        <template #content>
-          <a-doption>
-            <template #icon><icon-user /></template><span style="margin-left: 4px">个人中心</span>
-          </a-doption>
-          <a-doption >
-            <template #icon><icon-export /></template><span style="margin-left: 4px">退出登录</span>
-          </a-doption>
-        </template>
-      </a-dropdown>
-    </section>
+  <a-layout-header class="Tiny-header">
+    <div class="logo" />
+    <a-menu v-model:selectedKeys="selectedKeys"  mode="horizontal" :style="{ lineHeight: '45px' }">
+      <a-menu-item key="1">nav 1</a-menu-item>
+      <a-menu-item key="2">nav 2</a-menu-item>
+      <a-menu-item key="3">nav 3</a-menu-item>
+    </a-menu>
+
   </a-layout-header>
 </template>
 
-<script lang="ts" setup>
-  import { computed, ref } from '@vue/reactivity'
-  import { Modal } from '@arco-design/web-vue'
-  import { useRouter } from 'vue-router'
-  const router = useRouter()
-  let light = ref('')
-  
-  const changeTheme = () => {
-    let theme = document.body.getAttribute('arco-theme')
-    // light.value = theme
-    if(!theme) {
-      // 设置暗黑主题
-      document.body.setAttribute('arco-theme', 'dark')
-    } else {
-      document.body.removeAttribute('arco-theme')
-    }
-  }
-  </script>
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  setup() {
+    return {
+      selectedKeys: ref<string[]>(['2']),
+    };
+  },
+});
+</script>
+<style>
+.Tiny-header{
+  position: 'fixed'; z-index: 10; width: '100%';
+  box-shadow: 1px 1px 2px 0px rgba(82, 90, 102, 0.04),2px 2px 8px 0px rgba(82, 90, 102, 0.08);
+}
+#components-layout-demo-fixed .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+[data-theme='dark'] .site-layout .site-layout-background {
+  background: #141414;
+}
+</style>
