@@ -1,10 +1,23 @@
 <template>
   <a-layout-header class="Tiny-header">
-    <div class="logo" />
-    <a-menu v-model:selectedKeys="selectedKeys"  mode="horizontal" :style="{ lineHeight: '45px' }">
-      <a-menu-item key="1">nav 1</a-menu-item>
-      <a-menu-item key="2">nav 2</a-menu-item>
-      <a-menu-item key="3">nav 3</a-menu-item>
+    <div class="Tiny-logo">
+      <!-- <section class="system-logo" @click="toHome">
+      <img src="@/assets/images/logo.gif" />
+      <span class="gi_hover system-name">Admin Pro</span>
+    </section> -->
+      <img src="@/assets/images/logo.png" alt="Logo" />
+    </div>
+    <a-menu v-model:selectedKeys="selectedKeys" mode="horizontal" :style="{ lineHeight: '45px' }">
+      <a-menu-item key="1">首页</a-menu-item>
+      <a-menu-item key="2">销售管理</a-menu-item>
+      <a-menu-item key="3">采购管理</a-menu-item>
+      <a-menu-item key="4">仓储管理</a-menu-item>
+      <a-menu-item key="5">运营管理</a-menu-item>
+      <a-menu-item key="6">工单中心</a-menu-item>
+      <a-menu-item key="7">财务管理</a-menu-item>
+      <a-menu-item key="8">审批管理</a-menu-item>
+      <a-menu-item key="9">基础档案</a-menu-item>
+      <a-menu-item key="10">系统设置</a-menu-item>
     </a-menu>
 
   </a-layout-header>
@@ -20,12 +33,34 @@ export default defineComponent({
   },
 });
 </script>
-<style>
-.Tiny-header{
-  position: 'fixed'; z-index: 10; width: '100%';
-  box-shadow: 1px 1px 2px 0px rgba(82, 90, 102, 0.04),2px 2px 8px 0px rgba(82, 90, 102, 0.08);
+<style  lang="scss" scoped>
+.Tiny-header {
+  position: 'fixed';
+  z-index: 10;
+  width: '100%';
+  display: flex;
+  background: #fff;
+  box-shadow: 1px 1px 2px 0px rgba(82, 90, 102, 0.04), 2px 2px 8px 0px rgba(82, 90, 102, 0.08);
+
+  .arco-menu-light .arco-menu-item.arco-menu-selected {
+    background: #2861BD;
+    color: #fff;
+  }
 }
-#components-layout-demo-fixed .logo {
+
+
+.Tiny-logo {
+  width: 180px;
+  height: 20px;
+  margin: 20px;
+
+  img {
+    width: 100%;
+    height: 20px;
+  }
+}
+
+/* #components-layout-demo-fixed .logo {
   width: 120px;
   height: 31px;
   background: rgba(255, 255, 255, 0.2);
@@ -39,5 +74,5 @@ export default defineComponent({
 
 [data-theme='dark'] .site-layout .site-layout-background {
   background: #141414;
-}
+} */
 </style>
