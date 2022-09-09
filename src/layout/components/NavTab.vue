@@ -84,6 +84,7 @@ navtabStore.removeCacheItem(item.componentName)
 
 // 关闭所有页签
 const onCloseAll = () => {
+  console.log('1111')
 navtabStore.clearTagList()
 }
 </script>

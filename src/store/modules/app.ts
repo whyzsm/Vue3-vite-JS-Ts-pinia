@@ -25,17 +25,22 @@ export const useAppStore = defineStore({
         path: "/user",
       },
     ],
+    memuWidth: 200,
   }),
   getters: {
     storeGetMenuList(state) {
       return state.menuList;
-    }
+    },
   },
   actions: {
+    update(memuWidth: number) {
+      console.log("memuWidth", memuWidth);
+      this.memuWidth = memuWidth;
+      console.log("this.memuWidt", this.memuWidth);
+    },
     // storeSetActivePath(state, path) {
     //   state.activePath = path;
     //   localStorage.setItem("ActivePath", JSON.stringify(path));
     // },
-  }
-
+  },
 });
