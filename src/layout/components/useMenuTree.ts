@@ -1,11 +1,10 @@
 import { computed } from 'vue'
 import type { RouteRecordRaw, RouteRecordNormalized } from 'vue-router'
 import { useAppStore } from '@/store'
-import { appRoutes as appClientMenus } from '@/router'
+import { appRoutes as appClientMenus } from '../../router'
 
 export default function useMenuTree() {
   const appStore = useAppStore()
-
   const appRoute = computed(() => {
     if (appStore.menuFromServer) {
       return appStore.asyncMenus
