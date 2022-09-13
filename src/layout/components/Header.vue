@@ -129,7 +129,7 @@ const logout = () => {
 .Tiny-system {
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 220px;
   background: #fff;
 }
 

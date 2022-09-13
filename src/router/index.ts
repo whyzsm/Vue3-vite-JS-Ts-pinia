@@ -23,16 +23,27 @@ export const routes = [
     path: '/',
     redirect: '/home',
     // path: '/layout',
-    name: 'Layout',
+    name: 'home',
     component: DEFAULT_LAYOUT,
+<<<<<<< HEAD
     meta: {
       title: 'home',
       locale: 'menu.about',
+=======
+<<<<<<< HEAD
+    meta: {
+      title: 'home',
+>>>>>>> b35cfa018055d656e2f9c4f1cc9d5d245cfbabfb
       requiresAuth: true,
       icon: 'iconfenlei',
       hideChildrenInMenu: true,
       order: 11
     },
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of 89e9932... zsm
+>>>>>>> b35cfa018055d656e2f9c4f1cc9d5d245cfbabfb
     children: [
       {
         path: 'home',
