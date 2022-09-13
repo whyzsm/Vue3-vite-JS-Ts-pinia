@@ -1,9 +1,15 @@
 import { computed } from 'vue'
 import type { RouteRecordRaw, RouteRecordNormalized } from 'vue-router'
+<<<<<<< HEAD:src/layout/components/useMenuTree.ts
 import { useAppStore } from '../../store/modules/app'
 // import { appRoutes as appClientMenus } from '../../router'
 import {routes as appClientMenus} from '../../router'
 console.log('appClientMenus',appClientMenus)
+=======
+import { useAppStore } from '@/store'
+import { appRoutes as appClientMenus } from '@/router'
+
+>>>>>>> parent of 820e23c... zsm:src/layout/components/ useMenuTree.ts
 export default function useMenuTree() {
   const appStore = useAppStore()
 
