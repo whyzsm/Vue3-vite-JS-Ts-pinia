@@ -18,7 +18,7 @@ const appnStore = useAppStore();
 console.log('useMenuTree',useMenuTree())
 const {menuTree}=useMenuTree()
 const { menuList, autoLeftWidth } = storeToRefs(appnStore);
-console.log('menuList', menuList,)
+console.log('menuList11', menuList,)
 console.log('menuTree',menuTree.value)
 // 菜单循环
 // const getMenuKeys = (params: MenuItem[]) => {
