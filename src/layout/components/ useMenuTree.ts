@@ -1,29 +1,39 @@
 import { computed } from 'vue'
 import type { RouteRecordRaw, RouteRecordNormalized } from 'vue-router'
+<<<<<<< HEAD:src/layout/components/ useMenuTree.ts
+<<<<<<< HEAD:src/layout/components/useMenuTree.ts
 import { useAppStore } from '../../store/modules/app'
 // import { appRoutes as appClientMenus } from '../../router'
 import {routes as appClientMenus} from '../../router'
 console.log('appClientMenus',appClientMenus)
+=======
+import { useAppStore } from '@/store'
+import { appRoutes as appClientMenus } from '@/router'
+
+>>>>>>> parent of 820e23c... zsm:src/layout/components/ useMenuTree.ts
+=======
+import { useAppStore } from '@/store'
+import { appRoutes as appClientMenus } from '../../router'
+
+>>>>>>> parent of 89e9932... zsm:src/layout/components/useMenuTree.ts
 export default function useMenuTree() {
   const appStore = useAppStore()
-
   const appRoute = computed(() => {
-    console.log('appStore.menuFromServer',appStore.menuFromServer)
     if (appStore.menuFromServer) {
       return appStore.asyncMenus
     }
     return appClientMenus
   })
-  console.log('appClientMenus',appClientMenus)
-  console.log('appRoute',appRoute)
 
   const menuTree = computed(() => {
     const copyRouter = JSON.parse(JSON.stringify(appRoute.value))
-    console.log('copyRouter'),copyRouter
+<<<<<<< HEAD:src/layout/components/ useMenuTree.ts
+    console.log('copyRouter',copyRouter),
+=======
+>>>>>>> parent of 89e9932... zsm:src/layout/components/useMenuTree.ts
     copyRouter.sort((a: RouteRecordNormalized, b: RouteRecordNormalized) => {
       return (a.meta.order || 0) - (b.meta.order || 0)
     })
-    console.log('copyRouter',copyRouter)
     // 遍历方法
     function travel(_routes: RouteRecordRaw[], layer: number) {
       if (!_routes) return null
