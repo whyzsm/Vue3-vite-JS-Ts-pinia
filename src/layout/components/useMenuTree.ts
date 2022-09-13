@@ -1,22 +1,29 @@
 import { computed } from 'vue'
 import type { RouteRecordRaw, RouteRecordNormalized } from 'vue-router'
-import { useAppStore } from '@/store'
-import { appRoutes as appClientMenus } from '../../router'
-
+import { useAppStore } from '../../store/modules/app'
+// import { appRoutes as appClientMenus } from '../../router'
+import {routes as appClientMenus} from '../../router'
+console.log('appClientMenus',appClientMenus)
 export default function useMenuTree() {
   const appStore = useAppStore()
+
   const appRoute = computed(() => {
+    console.log('appStore.menuFromServer',appStore.menuFromServer)
     if (appStore.menuFromServer) {
       return appStore.asyncMenus
     }
     return appClientMenus
   })
+  console.log('appClientMenus',appClientMenus)
+  console.log('appRoute',appRoute)
 
   const menuTree = computed(() => {
     const copyRouter = JSON.parse(JSON.stringify(appRoute.value))
+    console.log('copyRouter'),copyRouter
     copyRouter.sort((a: RouteRecordNormalized, b: RouteRecordNormalized) => {
       return (a.meta.order || 0) - (b.meta.order || 0)
     })
+    console.log('copyRouter',copyRouter)
     // 遍历方法
     function travel(_routes: RouteRecordRaw[], layer: number) {
       if (!_routes) return null

@@ -37,7 +37,7 @@ export const useAppStore = defineStore({
     autoLeftWidth: 200,
     menuList: [
       {
-        icon: "IconRobot",
+        icon: "iconfangjian",
         id: "GZT",
         name: "工作台",
         path: "/home",
@@ -45,12 +45,12 @@ export const useAppStore = defineStore({
           title: '其他',
           locale: 'menu.other',
           requiresAuth: false,
-          icon: 'menu-nav',
+          icon: 'icon-settings',
           order: 4
         },
       },
       {
-        icon: "IconCopyright",
+        icon: "iconshuju2",
         id: "ZBGL",
         name: "指标管理",
         path: "/indicator-manage",
@@ -58,12 +58,12 @@ export const useAppStore = defineStore({
           title: '其他',
           locale: 'menu.other',
           requiresAuth: false,
-          icon: 'menu-nav',
+          icon: 'icon-bookmark',
           order: 4
         },
       },
       {
-        icon: "IconSettings",
+        icon: "iconfenlei",
         id: "ZBGL",
         name: "个人中心",
         path: "/user",
@@ -71,7 +71,7 @@ export const useAppStore = defineStore({
           title: '其他',
           locale: 'menu.other',
           requiresAuth: false,
-          icon: 'menu-nav',
+          icon: 'icon-layers',
           order: 4
         },
       },
@@ -81,6 +81,10 @@ export const useAppStore = defineStore({
     storeGetMenuList(state) {
       return state.menuList;
     },
+     // 动态菜单
+     asyncMenus(): any {
+      return this.serverMenu
+    }
   },
   actions: {
     // 动态更新main的宽度

@@ -17,25 +17,34 @@ function formatModules(_modules: any, result: RouteRecordNormalized[]) {
 }
 
 export const appRoutes: RouteRecordNormalized[] = formatModules(modules, [])
-
-const routes = [
+console.log('appRoutes',appRoutes)
+export const routes = [
   {
     path: '/',
     redirect: '/home',
     // path: '/layout',
     name: 'Layout',
     component: DEFAULT_LAYOUT,
+    meta: {
+      title: 'home',
+      locale: 'menu.about',
+      requiresAuth: true,
+      icon: 'iconfenlei',
+      hideChildrenInMenu: true,
+      order: 11
+    },
     children: [
       {
         path: 'home',
         name: 'Home',
         component: () => import('@/views/home/index.vue'),
-        meta: { title: '首页', keepAlive: false }
+        meta: { title: '首页', keepAlive: false}
       },
     ]
   },
-  // ...appRoutes
+  ...appRoutes
 ]
+console.log('routes',routes)
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),

@@ -2,25 +2,8 @@
   <a-layout-sider breakpoint="lg" :width="200" collapsible :collapsed="collapsed" @collapse="onCollapse" class="asider">
     <a-menu :selected-keys="[activeKey]" :default-open-keys="['Workplace']" :auto-open-selected="true"
       :style="{ width: '100%', height: '100%' }">
-      <MenuItem v-for="item in menuList" :key="item.name" :data="item" @click="handleClickItem"></MenuItem>
+      <Menu-Item v-for="item in menuTree" :key="item.name" :data="item" @click="handleClickItem"></Menu-Item>
     </a-menu>
-    <!-- <a-menu :default-selected-keys="['1']" :auto-open-selected="true" :default-open-keys="['1']"
-      @menu-item-click="onClickMenuItem" :style="{ width: '100%', height: '100%' }"> -->
-      <!-- <a-menu-item key="0_1">
-          <IconHome />
-         {{item.name}}
-        </a-menu-item>
-        <a-sub-menu key="1">
-          <template #title>
-            <span>
-              <IconCalendar />Navigation 1
-            </span>
-          </template>
-          <a-menu-item key="1_1">Menu 1</a-menu-item>
-        </a-sub-menu>
-      </div> -->
-
-    <!-- </a-menu> -->
   </a-layout-sider>
 </template>
 <script  setup>
@@ -30,11 +13,31 @@ import { Message } from '@arco-design/web-vue';
 import { IconHome, IconCalendar } from '@arco-design/web-vue/es/icon';
 import { useAppStore } from '../../store/modules/app';
 import MenuItem from './MenuItem.vue'
-// import useMenuTree from './useMenuTree'
+import useMenuTree from './useMenuTree'
 const appnStore = useAppStore();
-// const {menuList}=useMenuTree()
+console.log('useMenuTree',useMenuTree())
+const {menuTree}=useMenuTree()
 const { menuList, autoLeftWidth } = storeToRefs(appnStore);
-console.log('menuList', menuList, 'autoLeftWidth', autoLeftWidth)
+console.log('menuList', menuList,)
+console.log('menuTree',menuTree.value)
+// 菜单循环
+// const getMenuKeys = (params: MenuItem[]) => {
+//   const data: string[] = []
+//   function forTree(arr: MenuItem[]) {
+//     arr.forEach((item: MenuItem) => {
+//       if (item.name) {
+//         data.push(item.name)
+//       }
+//       if (item.children?.length) {
+//         forTree(item.children)
+//       }
+//     })
+//   }
+//   forTree(params)
+//   return data
+// }
+
+
 const collapsed = ref(false);
 const onCollapse = (val, type) => {
   const content = type === 'responsive' ? '触发响应式收缩' : '点击触发收缩';
