@@ -3,6 +3,7 @@
 <<<<<<< HEAD
     <a-menu :selected-keys="[activeKey]" :default-open-keys="['Workplace']" :auto-open-selected="true"
       :style="{ width: '100%', height: '100%' }">
+<<<<<<< HEAD
       <Menu-Item v-for="item in menuTree" :key="item.name" :data="item" @click="handleClickItem"></Menu-Item>
 =======
     <a-menu :defaultOpenKeys="['1']" :defaultSelectedKeys="['0_2']" @menuItemClick="onClickMenuItem">
@@ -43,7 +44,27 @@
         <a-menu-item key="4_3">Menu 3</a-menu-item>
       </a-sub-menu>
 >>>>>>> parent of 820e23c... zsm
+=======
+      <MenuItem v-for="item in menuList" :key="item.name" :data="item" @click="handleClickItem"></MenuItem>
+>>>>>>> parent of 89e9932... zsm
     </a-menu>
+    <!-- <a-menu :default-selected-keys="['1']" :auto-open-selected="true" :default-open-keys="['1']"
+      @menu-item-click="onClickMenuItem" :style="{ width: '100%', height: '100%' }"> -->
+      <!-- <a-menu-item key="0_1">
+          <IconHome />
+         {{item.name}}
+        </a-menu-item>
+        <a-sub-menu key="1">
+          <template #title>
+            <span>
+              <IconCalendar />Navigation 1
+            </span>
+          </template>
+          <a-menu-item key="1_1">Menu 1</a-menu-item>
+        </a-sub-menu>
+      </div> -->
+
+    <!-- </a-menu> -->
   </a-layout-sider>
 </template>
 <script lang="ts" setup>
@@ -54,6 +75,7 @@ import { Message } from '@arco-design/web-vue';
 import { useRoute, useRouter } from 'vue-router'
 
 import { useAppStore } from '../../store/modules/app';
+<<<<<<< HEAD
 import { useMenuStore } from '../../store/modules/menu';
 import useMenuTree from './useMenuTree'
 const appnStore = useAppStore();
@@ -105,6 +127,14 @@ import {IconHome,IconCalendar} from '@arco-design/web-vue/es/icon';
 import { useAppStore } from '../../store/modules/app';
 const appnStore = useAppStore();
 >>>>>>> parent of 820e23c... zsm
+=======
+import MenuItem from './MenuItem.vue'
+// import useMenuTree from './useMenuTree'
+const appnStore = useAppStore();
+// const {menuList}=useMenuTree()
+const { menuList, autoLeftWidth } = storeToRefs(appnStore);
+console.log('menuList', menuList, 'autoLeftWidth', autoLeftWidth)
+>>>>>>> parent of 89e9932... zsm
 const collapsed = ref(false);
 const onCollapse = (val, type) => {
   const content = type === 'responsive' ? '触发响应式收缩' : '点击触发收缩';

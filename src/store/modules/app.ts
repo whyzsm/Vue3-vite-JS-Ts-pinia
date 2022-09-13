@@ -7,7 +7,7 @@ export const useAppStore = defineStore({
     activePath: JSON.parse(activePath) || "/home", // 当前激活的路径
     menuList: [
       {
-        icon: "iconfangjian",
+        icon: "IconRobot",
         id: "GZT",
         name: "工作台",
         path: "/home",
@@ -16,14 +16,14 @@ export const useAppStore = defineStore({
           title: '其他',
           locale: 'menu.other',
           requiresAuth: false,
-          icon: 'icon-settings',
+          icon: 'menu-nav',
           order: 4
         },
 =======
 >>>>>>> parent of 820e23c... zsm
       },
       {
-        icon: "iconshuju2",
+        icon: "IconCopyright",
         id: "ZBGL",
         name: "指标管理",
         path: "/indicator-manage",
@@ -32,14 +32,14 @@ export const useAppStore = defineStore({
           title: '其他',
           locale: 'menu.other',
           requiresAuth: false,
-          icon: 'icon-bookmark',
+          icon: 'menu-nav',
           order: 4
         },
 =======
 >>>>>>> parent of 820e23c... zsm
       },
       {
-        icon: "iconfenlei",
+        icon: "IconSettings",
         id: "ZBGL",
         name: "个人中心",
         path: "/user",
@@ -48,7 +48,7 @@ export const useAppStore = defineStore({
           title: '其他',
           locale: 'menu.other',
           requiresAuth: false,
-          icon: 'icon-layers',
+          icon: 'menu-nav',
           order: 4
         },
 =======
@@ -61,10 +61,6 @@ export const useAppStore = defineStore({
     storeGetMenuList(state) {
       return state.menuList;
     },
-     // 动态菜单
-     asyncMenus(): any {
-      return this.serverMenu
-    }
   },
   actions: {
     update(memuWidth: number) {
