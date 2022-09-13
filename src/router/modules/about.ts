@@ -1,7 +1,7 @@
 import { DEFAULT_LAYOUT } from '../base'
 import type { AppRouteRecordRaw } from '../types'
 
-const About: AppRouteRecordRaw = {
+const About: AppRouteRecordRaw[] = {
   path: '/about',
   name: 'About',
   redirect: '/about',
