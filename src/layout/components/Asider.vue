@@ -6,36 +6,57 @@
     </a-menu>
   </a-layout-sider>
 </template>
-<script  setup>
-import { defineComponent, ref } from 'vue';
-import { storeToRefs } from 'pinia';
+<script lang="ts" setup>
+import { defineComponent, ref,watch } from 'vue';
+// import { storeToRefs } from 'pinia';
 import { Message } from '@arco-design/web-vue';
-import { IconHome, IconCalendar } from '@arco-design/web-vue/es/icon';
+import { useRoute, useRouter } from 'vue-router'
+
 import { useAppStore } from '../../store/modules/app';
-import MenuItem from './MenuItem.vue'
+import { useMenuStore } from '../../store/modules/menu';
 import useMenuTree from './useMenuTree'
 const appnStore = useAppStore();
-console.log('useMenuTree',useMenuTree())
-const {menuTree}=useMenuTree()
-const { menuList, autoLeftWidth } = storeToRefs(appnStore);
-console.log('menuList', menuList,)
-console.log('menuTree',menuTree.value)
-// 菜单循环
-// const getMenuKeys = (params: MenuItem[]) => {
-//   const data: string[] = []
-//   function forTree(arr: MenuItem[]) {
-//     arr.forEach((item: MenuItem) => {
-//       if (item.name) {
-//         data.push(item.name)
-//       }
-//       if (item.children?.length) {
-//         forTree(item.children)
-//       }
-//     })
-//   }
-//   forTree(params)
-//   return data
-// }
+const menuStore=useMenuStore();
+const {menuTree}=useMenuTree();
+const route = useRoute()
+const router = useRouter()
+console.log('route',route.path)
+console.log('router',router)
+// const { menuList, autoLeftWidth } = storeToRefs(appnStore);
+const getMenuKeys = (params: MenuItem[]) => {
+  const data: string[] = []
+  function forTree(arr: MenuItem[]) {
+    console.log('arr',arr)
+    arr.forEach((item: MenuItem) => {
+      if (item.name) {
+        data.push(item.name)
+      }
+      if (item.children?.length) {
+        forTree(item.children)
+      }
+    })
+  }
+  forTree(params)
+  return data
+}
+
+
+const activeKey = ref('Home')
+console.log('menuTree.value',menuTree.value)
+// const menuKeyList = getMenuKeys(menuTree.value)
+
+// watch(
+//   () => route.path,
+//   () => {
+//     console.log('menuKeyList',menuKeyList)
+//     console.log('333', route.name?.toString())
+//     if (menuKeyList.includes(route.name?.toString() || '')) {
+//       activeKey.value = route.name?.toString() || '';
+//       console.log('activeKey',activeKey)
+//     }
+//   },
+//   { immediate: true }
+// )
 
 
 const collapsed = ref(false);
@@ -46,16 +67,28 @@ const onCollapse = (val, type) => {
   } else {
     appnStore.update(200)
   }
-
   Message.info({
     content,
     duration: 2000,
   });
   collapsed.value = val;
 }
-const onClickMenuItem = (key) => {
-  Message.info({ content: `You select ${key}`, showIcon: true });
-}
+// const handleClickItem = (item: MenuItem) => {
+//   activeKey.value = item.name
+//   if (item.name) {
+//     if (item.name === 'File') {
+//       router.push({ name: item.name, query: { fileType: 0 } })
+//     } else {
+//       router.push({ name: item.name })
+//     }
+//     if (menuKeyList.includes(item.path)) {
+//       activeKey.value = item.name
+//     }
+//   }
+// }
+
+
+
 </script>
 <style lang="scss" scoped>
 :deep(.arco-menu.arco-menu-vertical.arco-menu-collapsed) {

@@ -23,11 +23,10 @@ export const routes = [
     path: '/',
     redirect: '/home',
     // path: '/layout',
-    name: 'Layout',
+    name: 'home',
     component: DEFAULT_LAYOUT,
     meta: {
       title: 'home',
-      locale: 'menu.about',
       requiresAuth: true,
       icon: 'iconfenlei',
       hideChildrenInMenu: true,
