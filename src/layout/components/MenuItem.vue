@@ -1,35 +1,20 @@
 <template>
-  <a-sub-menu :key="data.name" v-if="data.children && data.children.length && !data.meta.hidden">
+  <a-sub-menu :key="data.path" v-if="data.children && data.children.length && !data.hidden">
     <template #icon>
-      <IconFont :type='data.meta.icon' :size="16"/>
+      <IconFont :type='data.icon' :size="16"/>
     </template>
-    <template #title>{{ data.meta.title }}</template>
-    <!-- <MenuItem v-for="item in data.children" :key="item.name" :data="item" @click="onClickMenuItem"></MenuItem> -->
+    <template #title>{{ data.name }}</template>
+    <MenuItem v-for="item in data.children" :key="item.id" :data="item" @click="onClickMenuItem"></MenuItem>
   </a-sub-menu>
 
-  <a-menu-item v-else :key="data.name" @click="onClickMenuItem(data)" v-if="!data.meta.hidden">
+  <a-menu-item  v-else :key="data.path"  @click="onClickMenuItem(data)" v-if="!data.hidden">
     <template #icon>
-      <IconFont :type='data.meta.icon' :size="16"/>
-      <!-- <GiSvgIcon v-if="data.meta.icon" :size="24" :name="data.meta.icon"></GiSvgIcon> -->
+      <IconFont :type='data.icon' :size="16"/>
       <!-- <icon-unordered-list v-else :size="20" /> -->
     </template>
-    {{ data.meta.title }}
+    {{ data.name }}
   </a-menu-item>
-  <!-- <a-sub-menu :key="data.id" v-if="data.children && data.children.length && !data?.meta?.hidden">
-    <template #icon>
-      <GiSvgIcon v-if="data.meta.icon" :size="24" :name="data.meta.icon"></GiSvgIcon>
-    </template>
-    <template #title>{{ data.meta.title }}</template>
-    <MenuItem v-for="item in data?.children" :key="item.name" :data="item" @click="onClickMenuItem">
-    </MenuItem>
-  </a-sub-menu>
 
-  <a-menu-item v-else :key="data.id" @click="onClickMenuItem(data)" v-if="!data?.meta?.hidden">
-    <template #icon>
-      <IconFont :type='data.meta.icon' :size="16"/>
-    </template>
-    {{ data.meta.title }}
-  </a-menu-item> -->
 </template>
 
 <script setup lang="ts" name="MenuItem">
@@ -47,8 +32,7 @@ defineProps(['data']);
 // })
 
 const emit = defineEmits(['click'])
-
-const onClickMenuItem = (item:any) => {
+const onClickMenuItem = (item: MenuItem) => {
   emit('click', item)
 }
 </script>

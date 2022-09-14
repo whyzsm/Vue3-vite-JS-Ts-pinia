@@ -1,60 +1,75 @@
 <template>
-  <a-layout-sider breakpoint="lg" :width="200" collapsible :collapsed="collapsed" @collapse="onCollapse" class="asider">
-    <a-menu :selected-keys="[activeKey]" :default-open-keys="['Workplace']" :auto-open-selected="true"
+  <a-layout-sider breakpoint="lg" :width="200" collapsible :collapsed="collapsed" @collapse="onCollapse"  class="asider">
+    <a-menu :selected-keys="[activeKey]" :default-open-keys="['Home']" :auto-open-selected="true"
       :style="{ width: '100%', height: '100%' }">
-      <Menu-Item v-for="item in menuTree" :key="item.name" :data="item" @click="handleClickItem"></Menu-Item>
+      <MenuItem v-for="item in menuTree"  :key="item.name" :data="item"  @click="handleClickItem"></MenuItem>
     </a-menu>
   </a-layout-sider>
 </template>
-<script  setup>
+<script lang="ts"  setup>
 import { defineComponent, ref } from 'vue';
 import { storeToRefs } from 'pinia';
-import { Message } from '@arco-design/web-vue';
-import { IconHome, IconCalendar } from '@arco-design/web-vue/es/icon';
-import { useAppStore } from '../../store/modules/app';
+import {useMenuStore} from  '../../store/modules/menu'
 import MenuItem from './MenuItem.vue'
-import useMenuTree from './useMenuTree'
+import { useRoute, useRouter } from 'vue-router'
+// import { Message } from '@arco-design/web-vue';
+// import { IconHome, IconCalendar } from '@arco-design/web-vue/es/icon';
+import { useAppStore } from '../../store/modules/app';
+
+
 const appnStore = useAppStore();
-console.log('useMenuTree',useMenuTree())
-const {menuTree}=useMenuTree()
-const { menuList, autoLeftWidth } = storeToRefs(appnStore);
-console.log('menuList', menuList,)
-console.log('menuTree',menuTree.value)
-// 菜单循环
-// const getMenuKeys = (params: MenuItem[]) => {
-//   const data: string[] = []
-//   function forTree(arr: MenuItem[]) {
-//     arr.forEach((item: MenuItem) => {
-//       if (item.name) {
-//         data.push(item.name)
-//       }
-//       if (item.children?.length) {
-//         forTree(item.children)
-//       }
-//     })
-//   }
-//   forTree(params)
-//   return data
-// }
-
-
+const menuStore=useMenuStore();
+console.log('menuStore',menuStore)
+// const { autoLeftWidth } = storeToRefs(appnStore);
+const {menuTree}= storeToRefs(menuStore);
+console.log('menuTree',menuTree)
 const collapsed = ref(false);
-const onCollapse = (val, type) => {
+
+const route = useRoute();
+const router = useRouter();
+console.log('route',route);
+console.log('router',router);
+const onCollapse = (val:any, type:any) => {
   const content = type === 'responsive' ? '触发响应式收缩' : '点击触发收缩';
   if (val) {
     appnStore.update(48)
   } else {
     appnStore.update(200)
   }
-
-  Message.info({
-    content,
-    duration: 2000,
-  });
+  // Message.info({
+  //   content,
+  //   duration: 2000,
+  // });
   collapsed.value = val;
 }
-const onClickMenuItem = (key) => {
-  Message.info({ content: `You select ${key}`, showIcon: true });
+const getMenuKeys = (params: MenuItem[]) => {
+  const data: string[] = []
+  function forTree(arr: MenuItem[]) {
+    arr.forEach((item: MenuItem) => {
+      if (item.path) {
+        data.push(item.path)
+      }
+      if (item.children?.length) {
+        forTree(item.children)
+      }
+    })
+  }
+  forTree(params)
+  return data
+}
+const activeKey = ref('Home');
+console.log('activeKey',activeKey.value)
+const menuKeyList = getMenuKeys(menuStore.menuTree)
+const handleClickItem = (item: MenuItem) => {
+  if (!item.path) return
+  if (item.path === '/file') {
+    router.push({ path: item.path, query: { fileType: 0 } })
+  } else {
+    router.push({ path: item.path })
+  }
+  if (menuKeyList.includes(item.path)) {
+    activeKey.value = item.path
+  }
 }
 </script>
 <style lang="scss" scoped>
