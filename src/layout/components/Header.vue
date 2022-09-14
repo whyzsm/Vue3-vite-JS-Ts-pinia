@@ -1,23 +1,10 @@
 <template>
   <a-layout-header class="Tiny-header">
     <div class="Tiny-logo">
-      <!-- <img src="@/assets/images/logo.png" alt="Logo" /> -->
+      <img src="@/assets/images/logo.png" alt="Logo" />
     </div>
     <a-menu v-model:selectedKeys="selectedKeys" mode="horizontal" class="Tiny_memu">
-      <a-menu-item key="1"><template #icon>
-          <icon-apps></icon-apps>
-        </template>首页</a-menu-item>
-      <a-menu-item key="2"><template #icon>
-          <icon-bug></icon-bug>
-        </template>销售管理</a-menu-item>
-      <a-menu-item key="3">采购管理</a-menu-item>
-      <a-menu-item key="4">仓储管理</a-menu-item>
-      <a-menu-item key="5">运营管理</a-menu-item>
-      <a-menu-item key="6">工单中心</a-menu-item>
-      <a-menu-item key="7">财务管理</a-menu-item>
-      <a-menu-item key="8">审批管理</a-menu-item>
-      <a-menu-item key="9">基础档案</a-menu-item>
-      <a-menu-item key="10">系统设置</a-menu-item>
+      <MenuItem v-for="item in headMenuTree"  :key="item.name" :data="item"  @click="handleClickItem"></MenuItem>
     </a-menu>
     <a-space class="Tiny-system">
       <!-- 消息通知 -->
@@ -81,10 +68,45 @@
 import { ref } from 'vue'
 import { Modal } from '@arco-design/web-vue'
 import { useRouter } from 'vue-router'
-import { useFullScreen } from '@/hooks'
+import { useFullScreen } from '../../hooks'
+import { storeToRefs } from 'pinia'
+import {useMenuStore} from  '../../store/modules/menu'
+import MenuItem from './MenuItem.vue'
+
+
 const router = useRouter();
 const selectedKeys = ref<string[]>(['2']);
-const { isFullScreen, onToggleFullScreen } = useFullScreen()
+const { isFullScreen, onToggleFullScreen } = useFullScreen();
+const menuStore=useMenuStore();
+const {headMenuTree}= storeToRefs(menuStore);
+const getMenuKeys = (params: MenuItem[]) => {
+  const data: string[] = []
+  function forTree(arr: MenuItem[]) {
+    arr.forEach((item: MenuItem) => {
+      if (item.path) {
+        data.push(item.path)
+      }
+      if (item.children?.length) {
+        forTree(item.children)
+      }
+    })
+  }
+  forTree(params)
+  return data
+}
+const menuKeyList = getMenuKeys(menuStore.headMenuTree)
+
+const handleClickItem = (item: MenuItem) => {
+  if (!item.path) return
+  if (item.path === '/file') {
+    router.push({ path: item.path, query: { fileType: 0 } })
+  } else {
+    router.push({ path: item.path })
+  }
+  if (menuKeyList.includes(item.path)) {
+    activeKey.value = item.path
+  }
+}
 
 // 跳转个人中心
 const toUser = () => {
@@ -104,6 +126,7 @@ const logout = () => {
     }
   })
 }
+
 </script>
 <style  lang="scss" scoped>
 .Tiny-header {
@@ -129,7 +152,7 @@ const logout = () => {
 .Tiny-system {
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 220px;
   background: #fff;
 }
 

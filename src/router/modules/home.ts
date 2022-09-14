@@ -1,7 +1,8 @@
 import { DEFAULT_LAYOUT } from '../base'
 
 const Home = {
-  path: '/home',
+  path: '/',
+  redirect: '/home',
   name: 'Home',
   component: DEFAULT_LAYOUT,
   children: [
