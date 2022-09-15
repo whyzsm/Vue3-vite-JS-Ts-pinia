@@ -5,7 +5,11 @@
       <a-layout-content class="tiny_content">
         <a-layout>
           <Asider></Asider>
-          <Main></Main>
+          <a-layout>
+            <NavTab></NavTab>
+            <Main></Main>
+          </a-layout>
+
         </a-layout>
       </a-layout-content>
     </a-layout>
@@ -16,10 +20,19 @@
 import Asider from './components/Asider.vue'
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
+import NavTab from './components/NavTab.vue'
+import { storeToRefs } from 'pinia';
+import { useAppStore } from '../store/modules/app';
+const appStore = useAppStore();
+const { autoLeftWidth } = storeToRefs(appStore);
 </script>
 <style scoped>
 .tiny_content {
   position: relative;
+}
+.tiny_mainbox{ 
+ overflow: hidden; 
+ width: 100%;
 }
 
 .tiny_layout {

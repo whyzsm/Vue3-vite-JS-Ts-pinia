@@ -18,16 +18,11 @@ import { useAppStore } from '../../store/modules/app';
 
 const appnStore = useAppStore();
 const menuStore=useMenuStore();
-console.log('menuStore',menuStore)
-// const { autoLeftWidth } = storeToRefs(appnStore);
 const {menuTree}= storeToRefs(menuStore);
-console.log('menuTree',menuTree)
 const collapsed = ref(false);
 
 const route = useRoute();
 const router = useRouter();
-console.log('route',route);
-console.log('router',router);
 const onCollapse = (val:any, type:any) => {
   const content = type === 'responsive' ? '触发响应式收缩' : '点击触发收缩';
   if (val) {
@@ -57,7 +52,6 @@ const getMenuKeys = (params: MenuItem[]) => {
   return data
 }
 const activeKey = ref('Home');
-console.log('activeKey',activeKey.value)
 const menuKeyList = getMenuKeys(menuStore.menuTree)
 const handleClickItem = (item: MenuItem) => {
   if (!item.path) return
@@ -91,9 +85,6 @@ const handleClickItem = (item: MenuItem) => {
 }
 
 .asider {
-  z-index: 9;
-  position: fixed;
   height: calc(100vh - 74px);
-  top: 74px
 }
 </style>

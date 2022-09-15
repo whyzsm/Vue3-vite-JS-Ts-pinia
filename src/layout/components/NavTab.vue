@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-tab" v-if="appStore.tab">
+  <div class="nav-tab Tiny_nav" v-if="appStore.tab">
     <a-tabs editable hide-content size="medium" :type="appStore.tabMode" :active-key="route.path" @tab-click="onClick"
       @delete="onClose">
       <a-tab-pane v-for="item of navtabStore.tagList" :key="item.path" :title="item.name"
@@ -35,12 +35,17 @@
 <script setup lang="ts" name="NavTab">
 import { watch, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useNavTabStore, useAppStore } from '@/store'
+import { storeToRefs } from 'pinia';
+import {useNavTabStore} from '../../store/modules/navtab'
+import {useAppStore} from '../../store/modules/app'
 
 const route = useRoute()
 const router = useRouter()
 const navtabStore = useNavTabStore()
 const appStore = useAppStore()
+const { autoLeftWidth } = storeToRefs(appStore);
+console.log('navtabStore.tagList',navtabStore.tagList)
+console.log('route.path',route.path)
 
 onMounted(() => {
 handleNavTab()
@@ -84,12 +89,12 @@ navtabStore.removeCacheItem(item.componentName)
 
 // 关闭所有页签
 const onCloseAll = () => {
-  console.log('1111')
 navtabStore.clearTagList()
 }
 </script>
 
 <style lang="scss" scoped>
+.Tiny_nav{ position: relative;}
 :deep(.arco-tabs-tab) {
   border-bottom-color: transparent !important;
 

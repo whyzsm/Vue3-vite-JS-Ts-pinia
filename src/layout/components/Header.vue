@@ -95,6 +95,7 @@ const getMenuKeys = (params: MenuItem[]) => {
   return data
 }
 const menuKeyList = getMenuKeys(menuStore.headMenuTree)
+const activeKey = ref('Home');
 
 const handleClickItem = (item: MenuItem) => {
   if (!item.path) return
@@ -136,7 +137,7 @@ const logout = () => {
   display: flex;
   background: #fff;
   align-items: center;
-  box-shadow: 1px 1px 2px 0px rgba(82, 90, 102, 0.04), 2px 2px 8px 0px rgba(82, 90, 102, 0.08);
+  box-shadow: 1px 1px 2px 0px rgba(82, 90, 102, 0.04),2px 2px 8px 0px rgba(82, 90, 102, 0.08);
   cursor: pointer;
   user-select: none;
   .arco-menu-light .arco-menu-item.arco-menu-selected {
