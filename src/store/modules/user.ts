@@ -1,38 +1,54 @@
-// 用户信息
-const state = {
-  user: JSON.parse(localStorage.getItem('USER') as string) || {
-    account: '',
-    deptId: '',
-    email: '',
-    id: '',
-    isAdmin: false,
-    name: '',
-    phone: ''
+import { defineStore } from 'pinia'
+import { login as userLogin, logout as userLogout } from '@/apis'
+import type { LoginParams, UserInfo } from '@/apis'
+import { setToken, clearToken } from '@/utils/auth'
+
+export type RoleType = '' | '*' | 'admin' | 'user'
+
+interface UserState {
+  userInfo: UserInfo
+}
+
+export const useUserStore = defineStore({
+  id: 'User',
+  state: (): UserState => {
+    return {
+      userInfo: JSON.parse(localStorage.getItem('UserInfo') as string) || {
+        name: '',
+        avatar: '',
+        phone: '',
+        registrationDate: '',
+        accountId: '',
+        role: ''
+      }
+    }
+  },
+  getters: {
+    userName(): string {
+      return this.userInfo.name
+    }
+  },
+  actions: {
+    // 登录
+    async login(loginForm: LoginParams) {
+      try {
+        const res = await userLogin(loginForm)
+        setToken(res.data.token)
+        this.userInfo = res.data.userInfo
+        localStorage.setItem('UserInfo', JSON.stringify(this.userInfo))
+      } catch (err) {
+        clearToken()
+        throw err
+      }
+    },
+    // 退出登录
+    async logout() {
+      try {
+        await userLogout()
+        clearToken()
+      } catch (err) {
+        return err
+      }
+    }
   }
-}
-
-const getters = {
-  // 获取用户信息
-  storeUser(state:any) {
-    return state.user
-  }
-}
-
-const mutations = {
-  // 设置用户信息
-  storeSetUser(state:any, userInfo:any) {
-    const { account, deptId, email, id, isAdmin, name, phone } = userInfo
-    state.user = { account, deptId, email, id, isAdmin, name, phone }
-    localStorage.setItem('USER', JSON.stringify(state.user))
-  }
-}
-
-const actions = {}
-
-export default {
-  namespaced: true,
-  state,
-  getters,
-  mutations,
-  actions
-}
+})
