@@ -2,25 +2,33 @@
 import { ref, reactive, Ref, isRef, shallowRef, triggerRef } from "vue";
 import { useUserStore } from "../../store/user";
 import { storeToRefs } from "pinia";
-import request from '../../utils/request'
+import service from '../../utils/request'
 const userStore = useUserStore();
-
+console.log('service',service)
 // formdata: {iptName:'input',seltName:'全部'},
 const { formdata } = storeToRefs(userStore);
 console.log('formdata', formdata.value)
 defineProps<{ msg: string }>();
 
 const getInfo=()=> {
-  return request({
+  return service({
     url: 'https://api.github.com/users',
     method: 'get'
   })
 }
-const onClick = () => {
+const onClick =async () => {
   console.log('222')
-  getInfo().then(res=>{
-    console.log('res',res)
-  })
+  // async getInfo() {
+  //   let param = {
+  //     pageNum:id.pageNum,
+  //     pageSize: id.pageSize,
+  //     params: id.params,
+  //   }
+    let { data } = await getInfo();
+    console.log('data123',data)
+  // getInfo().then(res=>{
+  //   console.log('res',res)
+  // })
   // userStore.updateName("李四");
   // userStore.iptUpadataName();
   // const data=request(getInf)
