@@ -19,6 +19,14 @@ export const useMenuStore = defineStore({
       },
       {
         icon: "iconfenlei",
+        id: "toSend",
+        name: "到件扫描",
+        path: "/toSend",
+        keepAlive: true,
+        hidden: false,
+      },
+      {
+        icon: "iconfenlei",
         id: "YBP",
         name: "仪表盘",
         path: "/dashboard",

@@ -41,7 +41,6 @@ export const routes = [
   // },
   ...appRoutes,
 ];
-console.log('routes++',routes)
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),

@@ -11,6 +11,7 @@ import path from 'path'
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
+  console.log('env',env)
   return {
     plugins: [
       vue(),
@@ -57,8 +58,16 @@ export default defineConfig(({ command, mode }) => {
     },
     server: {
       proxy: {
+        // '/scan/api/shiro-cas': 'http://10.10.101.96:8899/scan', //单点登录网关--架构
+        // '/api/': {
+        //    target: 'http://10.10.101.96:8899/scan/',
+        //    changeOrigin: true, // 是否允许不同源
+        //    secure: false, // 支持https
+        //    rewrite: (path) => path.replace(/^\/api/, '/api')
+        //  }, //扫描
         '/api': {
-          target: env.VITE_APP_BASE_URL, // 后台服务器地址
+          target: 'http://10.10.230.102:58094/',
+          // target: env.VITE_APP_BASE_URL, // 后台服务器地址
           changeOrigin: true, // 是否允许不同源
           secure: false, // 支持https
           rewrite: (path) => path.replace(/^\/api/, '/api')

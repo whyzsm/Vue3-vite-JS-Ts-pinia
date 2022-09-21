@@ -44,7 +44,7 @@ import { useUserStore } from '../store/user';
 import { storeToRefs } from 'pinia';
 const userStore = useUserStore();
 const { name } = storeToRefs(userStore);
-console.log('name',name)
+
 
 interface FormState {
   user: string;

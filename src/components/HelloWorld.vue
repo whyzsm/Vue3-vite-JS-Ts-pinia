@@ -6,14 +6,12 @@ import { storeToRefs } from "pinia";
 const userStore = useUserStore();
 // formdata: {iptName:'input',seltName:'全部'},
 const { formdata } = storeToRefs(userStore);
-console.log('formdata',formdata.value)
 defineProps<{ msg: string }>();
 const $axios = inject('$axios')
 const getData = () => {
     return $axios.get('https://api.github.com/users')
 }
 const onClick = () => {
-  console.log('1111')
   userStore.updateName("李四");
   userStore.iptUpadataName();
   const { run, data, loading, error, refresh } = useRequest(getData, {

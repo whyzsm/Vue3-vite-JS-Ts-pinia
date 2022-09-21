@@ -57,10 +57,11 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
-    const { data } = response
-    const { message, success,code } = data
-    // if(code===401)
-    if (!success) {
+    const { data } = response;
+    console.log('data----',data)
+    const { message, code } = data;
+    console.log('data',data)
+    if (code===-1) {
       NProgress.done()
       Notification.error(message || '服务器端错误')
       return Promise.reject(new Error('Error'))

@@ -4,11 +4,7 @@ import { useUserStore } from "../../store/user";
 import { storeToRefs } from "pinia";
 import service from '../../utils/request'
 const userStore = useUserStore();
-console.log('service',service)
-// formdata: {iptName:'input',seltName:'全部'},
 const { formdata } = storeToRefs(userStore);
-console.log('formdata', formdata.value)
-defineProps<{ msg: string }>();
 
 const getInfo=()=> {
   return service({
@@ -17,13 +13,6 @@ const getInfo=()=> {
   })
 }
 const onClick =async () => {
-  console.log('222')
-  // async getInfo() {
-  //   let param = {
-  //     pageNum:id.pageNum,
-  //     pageSize: id.pageSize,
-  //     params: id.params,
-  //   }
     let { data } = await getInfo();
     console.log('data123',data)
   // getInfo().then(res=>{
@@ -51,17 +40,14 @@ const onCount = () => {
   //  triggerRef(message)
 
   // let notRef:number = 123;
-  // console.log(isRef(message));
-  // console.log(isRef(notRef));
 
   // message.value = { name: "大满" }
-  // console.log('count',count)
+
   // count.value=count.value++
 };
 </script>
   
 <template>
-  <!-- <h1>{{ msg }}</h1> -->
   <div class="card">
     <a-input v-model:value="formdata.iptName" />
     <a-input v-model:value="formdata.seltName" />

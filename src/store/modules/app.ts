@@ -89,9 +89,7 @@ export const useAppStore = defineStore({
   actions: {
     // 动态更新main的宽度
     update(autoLeftWidth: number) {
-      console.log("autoLeftWidth", autoLeftWidth);
       this.autoLeftWidth = autoLeftWidth;
-      console.log("this.memuWidt", this.autoLeftWidth);
     },
     // 改变菜单来源方式
     changeMenuFromServer(value: boolean) {

@@ -44,8 +44,6 @@ const router = useRouter()
 const navtabStore = useNavTabStore()
 const appStore = useAppStore()
 const { autoLeftWidth } = storeToRefs(appStore);
-console.log('navtabStore.tagList',navtabStore.tagList)
-console.log('route.path',route.path)
 
 onMounted(() => {
 handleNavTab()
