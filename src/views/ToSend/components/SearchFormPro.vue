@@ -55,6 +55,7 @@ const handleClear = async () => {
             </a-form-item>
             <a-form-item :field="item.key" :label="item.label" v-if="item.type === 'Radio'">
               <a-radio-group
+              type="button"
                 v-model="formState[item.key]"
                 :options="item.option"
                 option-type="button"
@@ -90,6 +91,5 @@ const handleClear = async () => {
         </a-col>
       </a-row>
     </a-form>
-    {{formState}}
   </a-card>
 </template>

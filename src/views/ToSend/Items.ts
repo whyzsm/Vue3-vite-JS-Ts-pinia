@@ -48,3 +48,28 @@ export const searchFormItems = (): FormSchema[] => {
     },
   ];
 };
+export const tableColumns = ({ handleDelete }) => {
+  return [
+    {
+      title: '扫描单号',
+      dataIndex: 'scanWaybillNo',
+      fixed: 'left',
+      width: 220,
+      align: 'center',
+      ellipsis: true,
+    },
+    { title: '扫描网点', dataIndex: 'scanSiteName', width: 200, align: 'center', ellipsis: true },
+    { title: '扫描人', dataIndex: 'scanName', width: 150, align: 'center', ellipsis: true },
+    { title: '扫描时间', dataIndex: 'scanTime', width: 200, align: 'center', ellipsis: true },
+    { title: '上一网点', dataIndex: 'prevSiteName', width: 200, align: 'center', ellipsis: true },
+    { title: '目的网点', dataIndex: 'destSiteName', width: 200, align: 'center', ellipsis: true },
+    {
+      title: '产品类型',
+      dataIndex: 'productTypeName',
+      width: 100,
+      align: 'center',
+      ellipsis: true,
+    }
+  ]
+}
+
