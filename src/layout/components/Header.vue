@@ -1,34 +1,35 @@
 <template>
-  <a-layout-header class="Tiny-header">
+  <el-header class="Tiny-header">
     <div class="Tiny-logo">
       <img src="@/assets/images/logo.png" alt="Logo" />
     </div>
-    <a-menu v-model:selectedKeys="selectedKeys" mode="horizontal" class="Tiny_memu">
+    <el-menu v-model:selectedKeys="selectedKeys" mode="horizontal" class="Tiny_memu">
       <MenuItem v-for="item in headMenuTree"  :key="item.name" :data="item"  @click="handleClickItem"></MenuItem>
-    </a-menu>
-    <a-space class="Tiny-system">
+      <!-- <el-menu-item v-for="item in headMenuTree"  :key="item.name" :data="item"  @click="handleClickItem"></el-menu-item> -->
+    </el-menu>
+    <el-space class="Tiny-system">
       <!-- 消息通知 -->
-      <a-popover position="br" trigger="click" class="Tiny-systemIcon">
-        <a-badge :count="9" dot>
+      <el-popover position="br" trigger="click" class="Tiny-systemIcon">
+        <el-badge :value="9" dot>
           <a-button size="mini" class="Tiny_hover_btn">
             <template #icon>
-              <icon-notification :size="18" />
+              <!-- <icon-notification :size="18" /> -->
             </template>
           </a-button>
-        </a-badge>
+        </el-badge>
         <template #content>
           <Message></Message>
         </template>
-      </a-popover>
+      </el-popover>
       <!-- 全屏切换组件 -->
-      <a-tooltip content="全屏切换" position="bottom">
-        <a-button size="mini" class="gi_hover_btn" @click="onToggleFullScreen">
+      <el-tooltip content="全屏切换" placement="bottom">
+        <el-button size="small" class="gi_hover_btn" @click="onToggleFullScreen">
           <template #icon>
             <icon-fullscreen :size="18" v-if="!isFullScreen" />
             <icon-fullscreen-exit :size="18" v-else />
           </template>
-        </a-button>
-      </a-tooltip>
+        </el-button>
+      </el-tooltip>
       <!-- 管理员账户 -->
       <a-dropdown trigger="hover">
         <a-row align="center" class="user">
@@ -60,13 +61,13 @@
           </a-doption>
         </template>
       </a-dropdown>
-    </a-space>
-  </a-layout-header>
+    </el-space>
+  </el-header>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Modal } from '@arco-design/web-vue'
+import { ElMessageBox } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { useFullScreen } from '../../hooks'
 import { storeToRefs } from 'pinia'
@@ -116,7 +117,7 @@ const toUser = () => {
 
 // 退出登录
 const logout = () => {
-  Modal.warning({
+  ElMessageBox.confirm({
     title: '提示',
     content: '确认退出登录？',
     hideCancel: false,

@@ -1,18 +1,18 @@
 <template>
   <div>
-    <a-layout class="tiny_layout">
+    <el-container class="tiny_layout">
       <Header></Header>
-      <a-layout-content class="tiny_content">
+      <el-main class="tiny_content">
         <a-layout>
           <Asider></Asider>
-          <a-layout>
+          <el-container>
             <NavTab></NavTab>
             <Main></Main>
-          </a-layout>
+          </el-container>
 
         </a-layout>
-      </a-layout-content>
-    </a-layout>
+      </el-main>
+    </el-container>
   </div>
 </template>
 

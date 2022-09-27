@@ -1,19 +1,19 @@
 <template>
-  <a-sub-menu :key="data.path" v-if="data.children && data.children.length && !data.hidden">
+  <el-sub-menu :key="data.path" v-if="data.children && data.children.length && !data.hidden">
     <template #icon>
       <IconFont :type='data.icon' :size="16"/>
     </template>
     <template #title>{{ data.name }}</template>
     <MenuItem v-for="item in data.children" :key="item.id" :data="item" @click="onClickMenuItem"></MenuItem>
-  </a-sub-menu>
+  </el-sub-menu>
 
-  <a-menu-item  v-else :key="data.path"  @click="onClickMenuItem(data)" v-if="!data.hidden">
+  <el-menu-item v-else :key="data.path"  @click="onClickMenuItem(data)" v-if="!data.hidden">
     <template #icon>
       <IconFont :type='data.icon' :size="16"/>
       <!-- <icon-unordered-list v-else :size="20" /> -->
     </template>
     {{ data.name }}
-  </a-menu-item>
+  </el-menu-item>
 
 </template>
 

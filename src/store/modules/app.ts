@@ -1,8 +1,10 @@
 import { defineStore } from "pinia";
 import type { TabModeType, animateModeType } from "../../config/option";
 import defaultSettings from '../../config/setting.json'
-import { Notification } from '@arco-design/web-vue'
-import type { NotificationReturn } from '@arco-design/web-vue'
+import { ElNotification } from 'element-plus'
+
+// import { Notification } from '@arco-design/web-vue'
+import type { NotificationReturn } from 'element-plus'
 
 interface ThemeState {
   theme: "light" | "dark";
@@ -99,25 +101,40 @@ export const useAppStore = defineStore({
      async getServerMenus() {
       let notifyInstance: NotificationReturn | null = null
       try {
-        notifyInstance = Notification.info({
-          id: 'menuNotice', // Keep the instance id the same
-          content: '动态菜单加载中',
-          closable: true
+        notifyInstance= ElNotification({
+          title: 'Info',
+          message: '动态菜单加载中',
+          type: 'info',
         })
+        // notifyInstance = ElNotification.info({
+        //   id: 'menuNotice', // Keep the instance id the same
+        //   content: '动态菜单加载中',
+        //   closable: true
+        // })
         // const { data } = await getMenuList()
         // this.serverMenu = data
         this.serverMenu=this.menuList
-        notifyInstance = Notification.success({
-          id: 'menuNotice',
-          content: '加载成功',
-          closable: true
+        notifyInstance= ElNotification({
+          title: 'Success',
+          message: '加载成功',
+          type: 'success',
         })
+        // notifyInstance = ElNotification.success({
+        //   id: 'menuNotice',
+        //   content: '加载成功',
+        //   closable: true
+        // })
       } catch (error) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        notifyInstance = Notification.error({
-          id: 'menuNotice',
-          content: '加载失败',
-          closable: true
+        // notifyInstance = ElNotification.error({
+        //   id: 'menuNotice',
+        //   content: '加载失败',
+        //   closable: true
+        // })
+        notifyInstance= ElNotification({
+          title: 'Warning',
+          message: '加载失败',
+          type: 'warning',
         })
       }
     },

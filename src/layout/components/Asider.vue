@@ -1,10 +1,10 @@
 <template>
-  <a-layout-sider breakpoint="lg" :width="200" collapsible :collapsed="collapsed" @collapse="onCollapse"  class="asider">
-    <a-menu :selected-keys="[activeKey]" :default-open-keys="['Home']" :auto-open-selected="true"
+  <el-aside  breakpoint="lg" :width="200" collapsible :collapsed="collapsed" @collapse="onCollapse"  class="asider">
+    <el-menu :selected-keys="[activeKey]" :default-open-keys="['Home']" :auto-open-selected="true"
       :style="{ width: '100%', height: '100%' }">
       <MenuItem v-for="item in menuTree"  :key="item.name" :data="item"  @click="handleClickItem"></MenuItem>
-    </a-menu>
-  </a-layout-sider>
+    </el-menu>
+  </el-aside>
 </template>
 <script lang="ts"  setup>
 import { defineComponent, ref } from 'vue';
