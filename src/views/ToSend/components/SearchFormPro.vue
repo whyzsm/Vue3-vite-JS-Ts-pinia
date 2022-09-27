@@ -38,7 +38,7 @@ const handleClear = async () => {
 </script>
 <template>
   <a-card style="width: 100%">
-    <a-form  layout="vertical" :model="formState" @submit="onFinish">
+    <a-form  layout="vertical" :model="formState" @submit="onFinish" size="large">
       <a-row :gutter="24">
         <template  v-for="item in props.dataSource()"  :key="item.key">
           <a-col  :span="6">
