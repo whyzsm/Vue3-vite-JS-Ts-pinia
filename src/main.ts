@@ -49,7 +49,10 @@ const app = createApp(App)
 // app.use(store)
 // app.use(Antd)
 // setArcoVue(app)
-app.use(router,ElementPlus)
+app.use(router)
+app.use(ElementPlus)
+
+// app.use(router,ElementPlus)
 // for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 //   app.component(key, component)
 // }

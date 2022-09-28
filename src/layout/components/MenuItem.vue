@@ -9,7 +9,8 @@
 
   <el-menu-item v-else :key="data.path"  @click="onClickMenuItem(data)" v-if="!data.hidden">
     <template #icon>
-      <IconFont :type='data.icon' :size="16"/>
+      111
+      <IconFont :type='data.icon' :size="20"/>
       <!-- <icon-unordered-list v-else :size="20" /> -->
     </template>
     {{ data.name }}
@@ -21,6 +22,7 @@
 import type { PropType } from 'vue'
 import { Icon } from '@arco-design/web-vue';
 const IconFont = Icon.addFromIconFontCn({ src: 'https://at.alicdn.com/t/c/font_1866771_12ay6ubnrcta.js' });
+console.log('22222',IconFont)
 defineProps(['data']);
 
 // defineProps({

@@ -5,7 +5,6 @@
     </div>
     <el-menu v-model:selectedKeys="selectedKeys" mode="horizontal" class="Tiny_memu">
       <MenuItem v-for="item in headMenuTree"  :key="item.name" :data="item"  @click="handleClickItem"></MenuItem>
-      <!-- <el-menu-item v-for="item in headMenuTree"  :key="item.name" :data="item"  @click="handleClickItem"></el-menu-item> -->
     </el-menu>
     <el-space class="Tiny-system">
       <!-- 消息通知 -->
@@ -141,16 +140,18 @@ const logout = () => {
   box-shadow: 1px 1px 2px 0px rgba(82, 90, 102, 0.04),2px 2px 8px 0px rgba(82, 90, 102, 0.08);
   cursor: pointer;
   user-select: none;
-  .arco-menu-light .arco-menu-item.arco-menu-selected {
-    background: #2861BD;
-    color: #fff;
-  }
-  .arco-menu-light .arco-menu-item.arco-menu-selected .arco-icon,
-  .arco-menu-light .arco-menu-item.arco-menu-selected .arco-menu-icon {
-    color: #ffffff;
-  }
+  justify-content:space-between;
+  .el-menu--horizontal{ border-style:none;}
+  // .arco-menu-light .arco-menu-item.arco-menu-selected {
+  //   background: #2861BD;
+  //   color: #fff;
+  // }
+  // .arco-menu-light .arco-menu-item.arco-menu-selected .arco-icon,
+  // .arco-menu-light .arco-menu-item.arco-menu-selected .arco-menu-icon {
+  //   color: #ffffff;
+  // }
 }
-.Tiny_memu{ line-height: 45px;  }
+.Tiny_memu{ line-height: 45px; width: 80%;}
 .Tiny-system {
   display: flex;
   align-items: center;

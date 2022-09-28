@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <el-container class="tiny_layout">
+  <div class="common-layout">
+    <div class="tiny_layout">
       <Header></Header>
-      <el-main class="tiny_content">
-        <a-layout>
+      <el-container class="tiny_content">
+        <el-container>
           <Asider></Asider>
           <el-container>
             <NavTab></NavTab>
             <Main></Main>
           </el-container>
-
-        </a-layout>
-      </el-main>
-    </el-container>
+        </el-container>
+      </el-container>
+    </div>
   </div>
 </template>
 
@@ -28,7 +27,7 @@ const { autoLeftWidth } = storeToRefs(appStore);
 </script>
 <style scoped>
 .tiny_content {
-  position: relative;
+  /* position: relative; */
 }
 .tiny_mainbox{ 
  overflow: hidden; 
