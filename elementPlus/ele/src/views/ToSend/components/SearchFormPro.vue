@@ -70,7 +70,7 @@ const handleClear = async () => {
       </el-row>
       <el-row>
         <el-col :span="24" style="text-align: right">
-          <el-button type="primary" @click="onFinish" >查询</el-button>
+          <el-button type="primary" @click="onFinish('formState')" >查询</el-button>
           <el-button style="margin: 0 8px" @click="handleClear">重置</el-button>
           <a style="font-size: 12px" @click="expand = !expand">
             <template v-if="expand">
