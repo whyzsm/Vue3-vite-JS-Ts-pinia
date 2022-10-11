@@ -2,15 +2,15 @@
   <div class="common-layout">
     <div class="tiny_layout">
       <Header></Header>
-      <el-container class="tiny_content">
+      <div class="tiny_content">
         <el-container>
           <Asider></Asider>
-          <el-container>
+          <div class="tiny_main">
             <NavTab></NavTab>
             <Main></Main>
-          </el-container>
+          </div>
         </el-container>
-      </el-container>
+      </div>
     </div>
   </div>
 </template>
@@ -25,8 +25,12 @@ import { useAppStore } from '../store/modules/app';
 const appStore = useAppStore();
 const { autoLeftWidth } = storeToRefs(appStore);
 </script>
-<style scoped>
+<style lang="scss" scoped >
+  .tiny_main{
+    width: 100%;
+  }
 .tiny_content {
+  width: 100%;
   /* position: relative; */
 }
 .tiny_mainbox{ 
@@ -39,4 +43,5 @@ const { autoLeftWidth } = storeToRefs(appStore);
   flex-direction: 100%,
     /* flex-direction: row; */
 }
+
 </style>

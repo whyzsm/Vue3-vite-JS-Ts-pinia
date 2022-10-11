@@ -36,25 +36,29 @@ const handleClear = async () => {
   emit('handleClear', resetFields());
 };
 </script>
+<style  lang="scss" scoped >
+  :deep(.el-card){border-radius: 0px;}
+</style>
+
 <template>
-  <a-card style="width: 100%">
-    <a-form  layout="vertical" :model="formState" @submit="onFinish" size="large">
-      <a-row :gutter="24">
+  <el-card style="width: 100%" shadow="never">
+    <el-form layout="vertical" :model="formState" @submit="onFinish" size="large">
+      <el-row :gutter="24">
         <template  v-for="item in props.dataSource()"  :key="item.key">
-          <a-col  :span="6">
-            <a-form-item :field="item.key" :label="item.label" v-if="item.type === 'Input'">
-              <a-input v-model="formState[item.key]" placeholder="placeholder" />
-            </a-form-item>
-            <a-form-item :field="item.key" :label="item.label" v-if="item.type === 'RangePicker'">
-              <a-range-picker
+          <el-col  :span="6">
+            <el-form-item :field="item.key" :label="item.label" v-if="item.type === 'Input'">
+              <el-input v-model="formState[item.key]" placeholder="placeholder" />
+            </el-form-item>
+            <el-form-item :field="item.key" :label="item.label" v-if="item.type === 'RangePicker'">
+              <el-range-picker
                 v-model="formState[item.key]"
                 show-time
                 format="YYYY-MM-DD HH:mm:ss"
                 value-format="YYYY-MM-DD HH:mm:ss"
               />
-            </a-form-item>
-            <a-form-item :field="item.key" :label="item.label" v-if="item.type === 'Radio'">
-              <a-radio-group
+            </el-form-item>
+            <el-form-item :field="item.key" :label="item.label" v-if="item.type === 'Radio'">
+              <el-radio-group
               type="button"
                 v-model="formState[item.key]"
                 :options="item.option"
@@ -62,23 +66,23 @@ const handleClear = async () => {
                 style="width: 100%"
                 class="tiny-itemFlex"
               />
-            </a-form-item>
-            <a-form-item :field="item.key" :label="item.label" v-if="item.type === 'Select'">
-              <a-select
+            </el-form-item>
+            <el-form-item :field="item.key" :label="item.label" v-if="item.type === 'Select'">
+              <el-select
                 v-model="formState[item.key]"
                 style="width: 100%"
                 placeholder="请选择"
                 :multiple="item.mode"
                 :options="item.option"
               />
-            </a-form-item>
-          </a-col>
+            </el-form-item>
+          </el-col>
         </template>
-      </a-row>
-      <a-row>
-        <a-col :span="24" style="text-align: right">
-          <a-button type="primary" html-type="submit">查询</a-button>
-          <a-button style="margin: 0 8px" @click="handleClear">重置</a-button>
+      </el-row>
+      <el-row>
+        <el-col :span="24" style="text-align: right">
+          <el-button type="primary" html-type="submit">查询</el-button>
+          <el-button style="margin: 0 8px" @click="handleClear">重置</el-button>
           <a style="font-size: 12px" @click="expand = !expand">
             <template v-if="expand">
               <UpOutlined />
@@ -88,8 +92,8 @@ const handleClear = async () => {
             </template>
             Collapse
           </a>
-        </a-col>
-      </a-row>
-    </a-form>
-  </a-card>
+        </el-col>
+      </el-row>
+    </el-form>
+  </el-card>
 </template>

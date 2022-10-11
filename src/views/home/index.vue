@@ -12,17 +12,12 @@ const getInfo=()=> {
     method: 'get'
   })
 }
+var msg:Ref<boolean> =ref(false);
 const onClick =async () => {
     let { data } = await getInfo();
     console.log('data123',data)
-  // getInfo().then(res=>{
-  //   console.log('res',res)
-  // })
-  // userStore.updateName("李四");
-  // userStore.iptUpadataName();
-  // const data=request(getInf)
-
-
+    msg.value=!msg.value;
+    console.log('msg',msg)
 };
 let count: Ref<number> = ref(0);
 //
@@ -34,6 +29,7 @@ let message: Ref<Obj> = shallowRef({
   foo: "小满",
   abc: 124,
 });
+
 const onCount = () => {
   // count.value++;
   message.value.foo = "大满";
@@ -45,13 +41,23 @@ const onCount = () => {
 
   // count.value=count.value++
 };
+var abc:Ref<string> =reactive('wqvb ');
+const changeMsg=()=>{
+  abc = "change msg"
+  console.log('abc',abc)
+}
 </script>
   
 <template>
   <div class="card">
+    
     <a-input v-model:value="formdata.iptName" />
     <a-input v-model:value="formdata.seltName" />
-    <a-button type="primary" @click="onClick">Primary Button</a-button>
+    <button @click="changeMsg">change</button>
+    <div>{{ abc }}</div>
+
+    {{msg}}
+    <el-button type="primary" @click="onClick">Primary Button</el-button>
     <!-- <button type="button" @click="onCount">count is {{ count }}{{message}}</button> -->
   </div>
 </template>

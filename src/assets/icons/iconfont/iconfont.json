@@ -1,0 +1,436 @@
+{
+  "id": "840166",
+  "name": "manage",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "21333108",
+      "name": "流向分析~",
+      "font_class": "liuxiangfenxi",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "594500",
+      "name": "响应",
+      "font_class": "xiangying",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "6179846",
+      "name": "投诉",
+      "font_class": "tousu",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "15382539",
+      "name": "重复",
+      "font_class": "zhongfu",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "19306825",
+      "name": "申报",
+      "font_class": "shenbao",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "20408164",
+      "name": "物品流向",
+      "font_class": "huaban55",
+      "unicode": "e719",
+      "unicode_decimal": 59161
+    },
+    {
+      "icon_id": "797093",
+      "name": "客服热线",
+      "font_class": "kefurexian",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "5583162",
+      "name": "ccc 云呼叫中心",
+      "font_class": "yunhu",
+      "unicode": "e89d",
+      "unicode_decimal": 59549
+    },
+    {
+      "icon_id": "643733",
+      "name": "充值",
+      "font_class": "zengzhi1",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "645691",
+      "name": "arrow-left",
+      "font_class": "arrowleft",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "645705",
+      "name": "arrow-right",
+      "font_class": "arrowright",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "1176976",
+      "name": "radio-checked-o",
+      "font_class": "radio-checked",
+      "unicode": "e72f",
+      "unicode_decimal": 59183
+    },
+    {
+      "icon_id": "7931119",
+      "name": "icon-原因",
+      "font_class": "yuanyin",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "11177288",
+      "name": "成本",
+      "font_class": "devcost",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "3788213",
+      "name": "weight",
+      "font_class": "weight",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "6375039",
+      "name": "考核",
+      "font_class": "kaohe",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "7487916",
+      "name": "电商",
+      "font_class": "dianshang",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "8827292",
+      "name": "增长率",
+      "font_class": "zengchangshuai",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "9110218",
+      "name": "预警",
+      "font_class": "yujing1",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "10221594",
+      "name": "钱袋",
+      "font_class": "qiandai",
+      "unicode": "ea75",
+      "unicode_decimal": 60021
+    },
+    {
+      "icon_id": "1397958",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "9304502",
+      "name": "反馈",
+      "font_class": "fankui",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "9468967",
+      "name": "趋势分析",
+      "font_class": "qushifenxi",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "10046760",
+      "name": "方案",
+      "font_class": "fangan-xian",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "8315734",
+      "name": "考核评估",
+      "font_class": "kaohepinggu",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "2682732",
+      "name": "库存3",
+      "font_class": "kucun",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "2915925",
+      "name": "货车",
+      "font_class": "huoche1",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "2757003",
+      "name": "订单",
+      "font_class": "dingdan",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "147737",
+      "name": "网厅",
+      "font_class": "wangting",
+      "unicode": "e6b6",
+      "unicode_decimal": 59062
+    },
+    {
+      "icon_id": "883928",
+      "name": "开始巡护",
+      "font_class": "kaishixunhu",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "3217864",
+      "name": "百分号",
+      "font_class": "rate",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "4188085",
+      "name": "AK-MN_快递员",
+      "font_class": "mn_kuaidiyuan",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "5269229",
+      "name": "pos机",
+      "font_class": "pos",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "5387778",
+      "name": "仓库_中转出站_o",
+      "font_class": "cangku_zhongzhuanchuzhan_o",
+      "unicode": "eb52",
+      "unicode_decimal": 60242
+    },
+    {
+      "icon_id": "5388045",
+      "name": "快递员_o",
+      "font_class": "kuaidiyuan_o",
+      "unicode": "ebc1",
+      "unicode_decimal": 60353
+    },
+    {
+      "icon_id": "6190357",
+      "name": "POS机管理",
+      "font_class": "POSjiguanli",
+      "unicode": "e980",
+      "unicode_decimal": 59776
+    },
+    {
+      "icon_id": "6501150",
+      "name": "时间",
+      "font_class": "icon--time",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "684678",
+      "name": "折线图分布",
+      "font_class": "line",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "1281472",
+      "name": "区域访问趋势",
+      "font_class": "zx",
+      "unicode": "e817",
+      "unicode_decimal": 59415
+    },
+    {
+      "icon_id": "3743578",
+      "name": "折线图",
+      "font_class": "icon-test",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "666902",
+      "name": "中转",
+      "font_class": "zz",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "2462844",
+      "name": "人力资源主题分析",
+      "font_class": "rlcb",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "3447398",
+      "name": "监控类型-修改",
+      "font_class": "ycjk",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "3981930",
+      "name": "商务站图标库__商家运营",
+      "font_class": "qushi",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "5653301",
+      "name": "监控",
+      "font_class": "jk",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "3772336",
+      "name": "关注",
+      "font_class": "guanzhu",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "6038473",
+      "name": "关注",
+      "font_class": "guanzhu1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1079495",
+      "name": "其他收入",
+      "font_class": "shouru0",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "4294078",
+      "name": "运输",
+      "font_class": "yunshu",
+      "unicode": "e789",
+      "unicode_decimal": 59273
+    },
+    {
+      "icon_id": "3596903",
+      "name": "预算与成本管理",
+      "font_class": "chexian",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "4965905",
+      "name": "工商处罚",
+      "font_class": "fakuan",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "5233411",
+      "name": "分析",
+      "font_class": "shouye",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "807966",
+      "name": "货物",
+      "font_class": "huowu",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "3761535",
+      "name": "增值",
+      "font_class": "zengzhi",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "2676111",
+      "name": "账号",
+      "font_class": "wode",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "5570035",
+      "name": "收入业绩",
+      "font_class": "shouru",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "729128",
+      "name": "我的投资",
+      "font_class": "lirun",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "741869",
+      "name": "法律 (2)",
+      "font_class": "pk",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "866484",
+      "name": "投资004",
+      "font_class": "paifei",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "4745572",
+      "name": "线性_喇叭",
+      "font_class": "bobao",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "5738291",
+      "name": "物流配送-19",
+      "font_class": "zhongzhuan",
+      "unicode": "ecea",
+      "unicode_decimal": 60650
+    }
+  ]
+}

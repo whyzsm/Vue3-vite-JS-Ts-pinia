@@ -1,12 +1,11 @@
 <template>
-  <a-layout class="main">
+  <el-container class="main">
     <router-view #default="{ Component,route}">
       <transition name="fade-transform" mode="out-in" appear>
         <component :is="Component" :key="route.path" />
       </transition>
     </router-view>
-    <!-- <router-view></router-view> -->
-  </a-layout>
+  </el-container>
 </template>
 
 <script lang="ts" setup>
@@ -22,11 +21,12 @@ const key = computed(() => route.path)
 </script>
 <style lang="scss" scoped>
 .main {
+  width: 100%;
   height: calc(100vh - 74px);
   flex-direction: column;
   overflow: hidden;
-  position: relative;
-  background: #fff;
+  // position: relative;
+  background: #f6f6f6;
 
 }
 </style>

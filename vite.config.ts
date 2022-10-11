@@ -7,6 +7,12 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { viteMockServe } from 'vite-plugin-mock'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import ElementPlus from 'unplugin-element-plus/vite'
+
+
+// import ElementPlus from 'unplugin-element-plus/vite'
+
 import path from 'path'
 
 export default defineConfig(({ command, mode }) => {
@@ -17,9 +23,15 @@ export default defineConfig(({ command, mode }) => {
       vue(),
       vueJsx(),
       VueSetupExtend(),
+      ElementPlus(), // 非官方
       Components({
         // 指定组件位置, 默认是src/components 自动导入自定义组件
         dirs: ['src/components'],
+        resolvers: [
+	        ElementPlusResolver({
+	        	importStyle: 'sass' // 非官方，必要
+        	})
+	      ],
         extensions: ['vue'],
         // 配置文件生成位置
         dts: 'src/components.d.ts'
@@ -52,7 +64,8 @@ export default defineConfig(({ command, mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@/styles/var.scss";`
+          additionalData: `@use "@/styles/element/index.scss" as *;`
+          // additionalData: `@import "@/styles/var.scss";`
         }
       }
     },

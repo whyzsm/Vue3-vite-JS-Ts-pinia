@@ -11,7 +11,6 @@
   "dependencies": {
     "@arco-design/color": "^0.4.0",
     "@arco-design/web-vue": "^2.36.0",
-    "@arco-themes/vue-gi-demo": "^0.0.22",
     "@arco-themes/vue-tiny": "^0.0.1",
     "@element-plus/icons-vue": "^2.0.9",
     "@vitejs/plugin-vue-jsx": "^2.0.1",

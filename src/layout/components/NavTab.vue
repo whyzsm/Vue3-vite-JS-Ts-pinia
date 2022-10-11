@@ -1,34 +1,20 @@
 <template>
-  <div class="nav-tab Tiny_nav" v-if="appStore.tab">
-    <a-tabs editable hide-content size="medium" :type="appStore.tabMode" :active-key="route.path" @tab-click="onClick"
-      @delete="onClose">
-      <a-tab-pane v-for="item of navtabStore.tagList" :key="item.path" :title="item.name"
-        :closable="item.path !== '/home'"></a-tab-pane>
-      <!-- 右侧按钮 -->
-      <template #extra>
-        <a-dropdown trigger="hover">
-          <a-button type="primary" size="mini" class="extra-btn">
-            <template #icon>
-              <icon-settings :size="18" />
-            </template>
-          </a-button>
-          <template #content>
-            <a-doption @click="onClose(route.path)">
-              <template #icon>
-                <icon-minus-circle-fill :size="20" style="color: rgb(var(--warning-6))" />
-              </template>
-              <template #default>关闭当前页签</template>
-            </a-doption>
-            <a-doption @click="onCloseAll">
-              <template #icon>
-                <icon-close-circle-fill :size="20" style="color: rgb(var(--danger-6))" />
-              </template>
-              <template #default>关闭所有页签</template>
-            </a-doption>
-          </template>
-        </a-dropdown>
-      </template>
-    </a-tabs>
+  <div class="Tiny_nav" v-if="appStore.tab">
+    <el-tabs
+    v-model="route.path"
+    closable
+    type="card"
+    class="demo-tabs"
+    @tab-click="onClick"
+    @tab-remove="onClose"
+  >
+    <el-tab-pane
+      v-for="item in navtabStore.tagList"
+      :key="item.path"
+      :label="item.name"
+      :name="item.path"
+    />    
+  </el-tabs>
   </div>
 </template>
 
@@ -38,6 +24,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia';
 import {useNavTabStore} from '../../store/modules/navtab'
 import {useAppStore} from '../../store/modules/app'
+import type { TabsPaneContext } from 'element-plus'
+
 
 const route = useRoute()
 const router = useRouter()
@@ -71,15 +59,21 @@ navtabStore.addCacheItem(String(route.name))
 }
 
 // 点击页签
-const onClick = (key: string | number) => {
+const onClick = (tab: TabsPaneContext, event: Event) => {
 // console.log('点击前', navtabStore.cacheList, key)
-router.push({ path: key.toString() })
+router.push({ path: tab.props.name.toString() })
 }
 
 // 关闭页签
-const onClose = (key: string | number) => {
-const item = navtabStore.tagList.find((i) => i.path === key)
-navtabStore.removeTagItem(key.toString())
+const onClose = (targetName: string, action: 'remove'| 'add' ) => {
+  if(action==='remove'){
+    console.log('targetName',targetName)
+    navtabStore.tagList.map(item=>{
+      console.log('item',item)
+    })
+  }
+const item = navtabStore.tagList.find((i) => i.path === targetName)
+navtabStore.removeTagItem(targetName.toString())
 if (item?.componentName) {
 navtabStore.removeCacheItem(item.componentName)
 }
@@ -92,57 +86,17 @@ navtabStore.clearTagList()
 </script>
 
 <style lang="scss" scoped>
-.Tiny_nav{ position: relative;}
-:deep(.arco-tabs-tab) {
-  border-bottom-color: transparent !important;
-
-  svg {
-    width: 0;
-    transition: all 0.15s;
-  }
-
-  &:hover {
-    svg {
-      width: 1em;
-    }
-  }
+.Tiny_nav{ position: relative; width: 100%; background:#fff; height: 37px;}
+:deep(.el-tabs--card>.el-tabs__header){
+  height: 37px;
 }
-
-:deep(.arco-tabs-tab-active) {
-  background-color: rgba(var(--primary-6), $alpha: 0.05);
-
-  &:hover {
-    background-color: rgba(var(--primary-6), $alpha: 0.05);
-  }
-
-  .arco-tabs-tab-close-btn {
-    &:hover {
-      &::before {
-        background-color: rgba(var(--primary-6), $alpha: 0.1) !important;
-      }
-    }
-  }
+:deep(.el-tabs--card>.el-tabs__header .el-tabs__nav){ height: 31px;margin-top: 6px;}
+:deep(.el-tabs__item){ line-height: 31px; }
+:deep(.el-tabs--card>.el-tabs__header .el-tabs__item){background:#EEEEEE;}
+:deep(.el-tabs--card>.el-tabs__header .el-tabs__item.is-active){
+  background: #fff;
+  border: 1px solid #7197D2;
 }
-
-.nav-tab {
-  padding-top: 5px;
-  background: var(--color-bg-1);
-}
-
-.extra-btn {
-  width: 28px;
-  height: 28px;
-  margin-right: 14px;
-  margin-bottom: 5px;
-
-  &:hover {
-    svg {
-      animation: turn 0.5s linear;
-      transform-origin: center;
-    }
-  }
-}
-
 @keyframes turn {
   0% {
     -webkit-transform: rotate(0deg);

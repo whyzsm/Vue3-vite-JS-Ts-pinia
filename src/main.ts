@@ -9,6 +9,9 @@ import axios from 'axios';
 // import ArcoVue from '@arco-design/web-vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import '../src/styles/element/index.scss'
+
+import './assets/icons/iconfont/iconfont.css'
 
 
 
@@ -26,7 +29,7 @@ import 'element-plus/dist/index.css'
 
 import '@/styles/css/transition.css'
 // 导入全局scss主文件
-import '@/styles/index.scss'
+// import '@/styles/index.scss'
 
 setGlobalOptions({
   manual: true,

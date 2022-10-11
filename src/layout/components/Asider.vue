@@ -1,6 +1,5 @@
 <template>
   <el-aside 
-     width="200" 
      collapsible 
      class="asider">
     <el-menu  :collapse="isCollapse" :selected-keys="[activeKey]" :default-open-keys="['Home']" :auto-open-selected="true"
@@ -30,15 +29,7 @@ const router = useRouter();
 const onCollapse = (key: string, keyPath: string) => {
   console.log('key',key, keyPath)
 }
-// const onCollapse = (val:any, type:any) => {
-//   const content = type === 'responsive' ? '触发响应式收缩' : '点击触发收缩';
-//   if (val) {
-//     appnStore.update(48)
-//   } else {
-//     appnStore.update(200)
-//   }
-//   collapsed.value = val;
-// }
+
 const getMenuKeys = (params: MenuItem[]) => {
   const data: string[] = []
   function forTree(arr: MenuItem[]) {
@@ -69,23 +60,7 @@ const handleClickItem = (item: MenuItem) => {
 }
 </script>
 <style lang="scss" scoped>
-:deep(.arco-menu.arco-menu-vertical.arco-menu-collapsed) {
-
-  // Menu菜单组件修改
-  .arco-menu-icon {
-    margin-right: 0;
-    padding: 10px 0;
-  }
-
-  .arco-menu-has-icon {
-    padding: 0;
-    justify-content: center;
-  }
-
-  .arco-menu-title {
-    display: none;
-  }
-}
+.el-aside{width: 200px;}
 
 .asider {
   height: calc(100vh - 74px);

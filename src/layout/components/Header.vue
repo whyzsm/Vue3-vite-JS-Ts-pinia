@@ -141,15 +141,8 @@ const logout = () => {
   cursor: pointer;
   user-select: none;
   justify-content:space-between;
+  border-bottom: 1px solid #d9d9d9;
   .el-menu--horizontal{ border-style:none;}
-  // .arco-menu-light .arco-menu-item.arco-menu-selected {
-  //   background: #2861BD;
-  //   color: #fff;
-  // }
-  // .arco-menu-light .arco-menu-item.arco-menu-selected .arco-icon,
-  // .arco-menu-light .arco-menu-item.arco-menu-selected .arco-menu-icon {
-  //   color: #ffffff;
-  // }
 }
 .Tiny_memu{ line-height: 45px; width: 80%;}
 .Tiny-system {
