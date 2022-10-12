@@ -5,7 +5,9 @@ import type {
   AxiosResponse,
   AxiosRequestHeaders,
 } from "axios";
-import { Message, Notification } from "@arco-design/web-vue";
+// import { Message, Notification } from "@arco-design/web-vue";
+import {ElNotification,MessageBox, ElMessage,Loading} from 'element-plus'
+
 import { getToken } from "@/utils/auth";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -48,7 +50,6 @@ service.interceptors.request.use(
     console.log('config.method',config.method )
     console.log("headers", config.headers );
     if (config.method === "post" || config.method === "put") {
-      console.log('post')
       if (config.headers?.reqType === "json") {
         config.headers = {
           "Content-Type": "application/json", // 配置请求头
@@ -92,24 +93,23 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   async (response: AxiosResponse) => {
-    console.log("response", response);
     const { data } = response;
     const { message, code } = data;
-    console.log("data", data);
     if (code === -1) {
       NProgress.done();
-      Notification.error(message || "服务器端错误");
+      ElMessage.error(message || "服务器端错误");
       return Promise.reject(new Error("Error"));
     }
     NProgress.done();
     return response.data;
   },
   (error) => {
+    console.log('222',error)
     NProgress.done();
-    Message.clear();
+    // Message.clear();
     const response = Object.assign({}, error.response);
     response &&
-      Message.error(
+    ElMessage.error(
         StatusCodeMessage[response.status] ||
           "系统异常, 请检查网络或联系管理员！"
       );

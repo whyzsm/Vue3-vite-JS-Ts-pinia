@@ -37,9 +37,10 @@ export const useScanStore = defineStore({
     async getData(payload:any){
       console.log('payload',payload)
       const param={
-        waybillNoList:[payload.values.waybillNoList],
+        waybillNoList:[payload.waybillNoList],
         pageSize: this.pageSize,
         page:this.page,
+        selectType:20
       }
       console.log('param',param)
     const res=  await waybillNo(param);

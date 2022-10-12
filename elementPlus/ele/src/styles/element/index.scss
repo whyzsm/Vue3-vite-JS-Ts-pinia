@@ -3,7 +3,7 @@ $--colors: (
     "base": #2861BD,
   ),
   "success": (
-    "base": #21ba45,
+    "base": #2861BD,
   ),
   "warning": (
     "base": #f2711c,
@@ -18,10 +18,25 @@ $--colors: (
     "base": #42b8dd,
   ),
 );
+$--bordeRadius:(
+  'base':0px,
+  'small': 0px,
+  'round': 20px,
+  'circle': 100%,
+);
+$base-color-default: #0187fb;
 @forward "element-plus/theme-chalk/src/common/var.scss" with (
   // $colors: (
   //   'primary': ('base': #f56c6c)
   // ),
   $colors: $--colors,
+  $card:(border-radius:0px),
+  $menu:('item-height': 48px,  'active-bg-color': green,'menu-background':red),
+  $button:( 'active-bg-color': green,),
+  // $base-menu-background-active: $base-color-default,
+  // $border-radius:$--bordeRadius,
   $main: ('padding': 0)
 );
+:root {
+  --left-menu-bg-color: #001529;
+}

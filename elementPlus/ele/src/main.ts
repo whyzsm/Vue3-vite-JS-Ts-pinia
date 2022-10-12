@@ -7,10 +7,13 @@ import App from "@/App.vue";
 import ElementPlus from 'element-plus'
 import axios from 'axios';
 // 导入全局scss主文件
+import 'element-plus/dist/index.css';
 import './style.css';
+import './assets/icons/iconfont/iconfont.css';
 
 const app = createApp(App);
 const pinia = createPinia();
+
 
 
 // 1.2. use挂载

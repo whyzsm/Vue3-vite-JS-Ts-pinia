@@ -1,13 +1,24 @@
-<script setup lang="ts">
-</script>
+
 <template>
   <div>
     <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
+    <el-button type="primary" @click="handleDemo" >Prima</el-button>
     <el-button type="primary" plain>Primary</el-button>
+    <el-button :plain="true" @click="open">Show message</el-button>
   </div>
 
 </template>
+<script  lang="ts" setup>
+import { ElMessage } from 'element-plus'
+const open = () => {
+  console.log('3344')
+  ElMessage.error('this is a message.')
+}
+const handleDemo=()=>{
+  console.log('demo111');
+  ElMessage.error('wq ')
+}
+</script>
 
 <style scoped>
 

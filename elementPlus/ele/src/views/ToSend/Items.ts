@@ -66,7 +66,7 @@ export const tableColumns = ({ handleDelete }) => {
     {
       title: '产品类型',
       dataIndex: 'productTypeName',
-      width: 100,
+      // width: 100,
       align: 'center',
       ellipsis: true,
     }
