@@ -1,11 +1,13 @@
 <template>
-  <el-aside collapsible class="asider">
-    <el-menu :collapse="isCollapse" :selected-keys="[activeKey]" :default-open-keys="['Home']"
-      :auto-open-selected="true" :style="{ width: '100%', height: '100%' }">
-      <MenuItem v-for="item in menuTree" :key="item.name" :data="item" @click="handleClickItem">
-      </MenuItem>
-    </el-menu>
-  </el-aside>
+  <!-- <el-scrollbar wrap-class="scrollbar-wrapper"> -->
+    <el-aside collapsible class="asider">
+      <el-menu :collapse="isCollapse" :selected-keys="[activeKey]" :default-open-keys="['Home']"
+        :auto-open-selected="true" :style="{ width: '100%', height: '100%' }">
+        <MenuItem v-for="item in menuTree" :key="item.name" :data="item" @click="handleClickItem">
+        </MenuItem>
+      </el-menu>
+    </el-aside>
+  <!-- </el-scrollbar> -->
 </template>
 <script lang="ts"  setup>
 import { defineComponent, ref } from 'vue';
@@ -13,10 +15,6 @@ import { storeToRefs } from 'pinia';
 import { useMenuStore } from '../../store/modules/menu'
 import MenuItem from './MenuItem.vue'
 import { useRoute, useRouter } from 'vue-router'
-// import { useAppStore } from '../../store/modules/app';
-
-
-// const appnStore = useAppStore();
 const menuStore = useMenuStore();
 const { menuTree } = storeToRefs(menuStore);
 const collapsed = ref(false);
@@ -45,7 +43,7 @@ const getMenuKeys = (params: MenuItem[]) => {
 const activeKey = ref('Home');
 const menuKeyList = getMenuKeys(menuStore.menuTree)
 const handleClickItem = (item: MenuItem) => {
-  console.log('item',item)
+  console.log('item', item)
   if (!item.path) return
   if (item.path === '/file') {
     router.push({ path: item.path, query: { fileType: 0 } })
@@ -58,11 +56,22 @@ const handleClickItem = (item: MenuItem) => {
 }
 </script>
 <style lang="scss" scoped>
-.el-aside {
-  width: 200px;
-}
-
+//  .scrollbar-wrapper {
+//     overflow-x: hidden !important;
+//   }
+  // .el-scrollbar{ width: 200px;}
+  .el-aside{width: 200px;}
 .asider {
   height: calc(100vh - 74px);
+  // width: 200px;
+  position:fixed;
+  top:60px;
+  left:0px;
+  overflow: hidden;
+  .el-menu-item.is-active {
+    background-color: rgb(231, 235, 240) !important;
+    border-right: 2px solid #2861BD;
+
+  }
 }
 </style>

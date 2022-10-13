@@ -8,8 +8,9 @@ import ElementPlus from 'element-plus'
 import axios from 'axios';
 // 导入全局scss主文件
 import 'element-plus/dist/index.css';
-import './style.css';
 import './assets/icons/iconfont/iconfont.css';
+import './style.css';
+import '@/styles/element/scrollbar-reset.scss';
 
 const app = createApp(App);
 const pinia = createPinia();

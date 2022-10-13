@@ -31,12 +31,13 @@ $base-color-default: #0187fb;
   // ),
   $colors: $--colors,
   $card:(border-radius:0px),
-  $menu:('item-height': 48px,  'active-bg-color': green,'menu-background':red),
-  $button:( 'active-bg-color': green,),
+  $menu:('item-height': 48px,  'active-bg-color': '#2861BD'),
+  // $button:( 'active-bg-color': green,),
   // $base-menu-background-active: $base-color-default,
   // $border-radius:$--bordeRadius,
-  $main: ('padding': 0)
+  $main: ('padding': 0),
 );
-:root {
-  --left-menu-bg-color: #001529;
-}
+// 自定义原生滚动条样式
+// @import './scrollbar-reset.scss';
+
+
