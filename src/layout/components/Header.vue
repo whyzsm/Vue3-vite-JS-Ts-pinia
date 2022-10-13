@@ -16,9 +16,9 @@
             </template>
           </a-button>
         </a-badge>
-        <template #content>
+        <!-- <template #content>
           <Message></Message>
-        </template>
+        </template> -->
       </a-popover>
       <!-- 全屏切换组件 -->
       <a-tooltip content="全屏切换" position="bottom">

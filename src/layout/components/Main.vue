@@ -2,7 +2,10 @@
   <a-layout class="main">
     <router-view #default="{ Component,route}">
       <transition name="fade-transform" mode="out-in" appear>
-        <component :is="Component" :key="route.path" />
+        <a-scrollbar style="height:100%;overflow: auto;">
+          <component :is="Component" :key="route.path" />
+        </a-scrollbar>
+       
       </transition>
     </router-view>
     <!-- <router-view></router-view> -->
@@ -23,11 +26,12 @@ const key = computed(() => route.path)
 <style lang="scss" scoped>
 .main {
   height: calc(100vh - 74px);
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
-  background: #fff;
-
+  width: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // overflow: hidden;
+  // position: relative;
+  background:#fff;
 }
 </style>
   

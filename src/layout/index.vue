@@ -9,7 +9,6 @@
             <NavTab></NavTab>
             <Main></Main>
           </a-layout>
-
         </a-layout>
       </a-layout-content>
     </a-layout>
@@ -30,13 +29,9 @@ const { autoLeftWidth } = storeToRefs(appStore);
 .tiny_content {
   position: relative;
 }
-.tiny_mainbox{ 
- overflow: hidden; 
- width: 100%;
-}
 
 .tiny_layout {
-  height: 100%;
+  /* height: 100%; */
   flex-direction: 100%,
     /* flex-direction: row; */
 }

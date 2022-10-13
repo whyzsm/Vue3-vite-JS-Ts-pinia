@@ -12,9 +12,9 @@ import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 // import { setArcoVue } from './plugins/arco-vue-plugin'
 // import 'ant-design-vue/dist/antd.css'
-// import '@arco-design/web-vue/dist/arco.css'
+import '@arco-design/web-vue/dist/arco.css'
 // import '@arco-themes/vue-tiny/index.less'
-import '@arco-themes/vue-gi-demo/index.less'  //切换不同的主题，也可以用自定义，vue-tiny就是自定义的
+// import '@arco-themes/vue-gi-demo/index.less'  //切换不同的主题，也可以用自定义，vue-tiny就是自定义的
 
 
 
