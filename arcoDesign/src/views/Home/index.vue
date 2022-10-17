@@ -13,11 +13,11 @@ import { ref, reactive, Ref, isRef, shallowRef, triggerRef } from "vue";
     <a-input v-model:value="formdata.seltName" />
     <a-button type="primary" @click="onClick">Primary Button</a-button> -->
     <div class="detail">
-      <p>111闯火海1111、下冰河、攀悬崖……111</p>
+      <p>111闯火海1111、下冰河、攀111悬崖……111</p>
 
-      <p>从事消防救援工作20年</p>
+      <p>从事消防22222救援工作20年</p>
 
-      <p>5400余次出发</p>
+      <p>5400余222次出发</p>
 
         <p>他就是2022年“最美退役军人”</p>
 

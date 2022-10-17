@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { setupStore } from './store';
-import { setGlobalOptions } from 'vue-request';
 import axios from 'axios';
 // import store from './store'
 // import Antd from 'ant-design-vue';
@@ -23,11 +22,6 @@ import '@/styles/css/transition.css'
 // 导入全局scss主文件
 import '@/styles/index.scss'
 
-setGlobalOptions({
-  manual: true,
-  // ...
-});
-
 
 
 
@@ -44,7 +38,7 @@ app.use(ArcoVueIcon)
 // app.use(store)
 // app.use(Antd)
 // setArcoVue(app)
-app.use(router,ArcoVue,ArcoVueIcon)
+// app.use(router,ArcoVue,ArcoVueIcon)
 setupStore(app)
 app.provide('$axios', axios)
 app.mount('#app')

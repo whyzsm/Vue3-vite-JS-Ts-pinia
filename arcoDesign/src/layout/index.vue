@@ -1,19 +1,20 @@
 <template>
-  <!-- <a-layout class="tiny_layout">
-       <Main></Main>
-    </a-layout> -->
-  <a-layout class="tiny_layout">
-    <Header></Header>
-    <a-layout-content class="tiny_content">
-      <a-layout class="layout">
-        <Asider></Asider>
-        <div class="maxbox">
-          <NavTab></NavTab>
-          <Main></Main>
-        </div>
-      </a-layout>
-    </a-layout-content>
+  <a-layout class="layout">
+    <Asider></Asider>
+    <div class="abc">
+      <NavTab></NavTab>
+      <Main></Main>
+    </div>
   </a-layout>
+  <!-- <a-layout class="layout">
+          <Asider></Asider>
+          <a-layout>
+            <NavTab></NavTab>
+            <Main></Main>
+          </a-layout>
+        </a-layout> -->
+  <!-- </a-layout-content> -->
+  <!-- </a-layout> -->
 </template>
 
 <script lang="ts" setup>
@@ -27,10 +28,10 @@ const appStore = useAppStore();
 const { autoLeftWidth } = storeToRefs(appStore);
 </script>
 <style scoped>
-.layout {
+/* .layout {
   flex-direction: row;
-}
-.maxbox{ width: 100%;}
+} */
+.abc{ width: 100%;}
 .tiny_content {
   position: relative;
 }
