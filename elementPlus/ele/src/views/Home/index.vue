@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <div class="detail">
     <el-button>Default</el-button>
     <el-button type="primary" @click="handleDemo" >Prima</el-button>
     <el-button type="primary" plain>Primary</el-button>
@@ -27,5 +27,5 @@ const handleDemo=()=>{
 </script>
 
 <style scoped>
-
+.detail{ width: 100%; height: 100%; overflow-x:hidden; overflow-y: auto;}
 </style>

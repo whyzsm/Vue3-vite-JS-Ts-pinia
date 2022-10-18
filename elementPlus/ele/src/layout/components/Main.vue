@@ -21,11 +21,12 @@ const key = computed(() => route.path)
 </script>
 <style lang="scss" scoped>
 .main {
-  height: calc(100vh - 74px);
-  // display: flex;
+  height: calc(100vh - 97px);
+  display: flex;
   flex-direction: column;
   overflow: hidden;
   background: #f6f6f6;
+  width: 100%;
 
 }
 </style>

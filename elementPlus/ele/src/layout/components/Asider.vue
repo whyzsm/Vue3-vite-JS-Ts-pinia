@@ -1,7 +1,7 @@
 <template>
   <!-- <el-scrollbar wrap-class="scrollbar-wrapper"> -->
     <el-aside collapsible class="asider">
-      <el-menu :collapse="isCollapse" :selected-keys="[activeKey]" :default-open-keys="['Home']"
+      <el-menu  :selected-keys="[activeKey]" :default-open-keys="['Home']"
         :auto-open-selected="true" :style="{ width: '100%', height: '100%' }">
         <MenuItem v-for="item in menuTree" :key="item.name" :data="item" @click="handleClickItem">
         </MenuItem>
@@ -62,9 +62,9 @@ const handleClickItem = (item: MenuItem) => {
   // .el-scrollbar{ width: 200px;}
   .el-aside{width: 200px;}
 .asider {
-  height: calc(100vh - 74px);
+  height: calc(100vh - 60px);
   // width: 200px;
-  position:fixed;
+  // position:fixed;
   top:60px;
   left:0px;
   overflow: hidden;

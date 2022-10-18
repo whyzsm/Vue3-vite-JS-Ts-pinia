@@ -7,7 +7,7 @@ import App from "@/App.vue";
 import ElementPlus from 'element-plus'
 import axios from 'axios';
 // 导入全局scss主文件
-import 'element-plus/dist/index.css';
+// import 'element-plus/dist/index.css';
 import './assets/icons/iconfont/iconfont.css';
 import './style.css';
 import '@/styles/element/scrollbar-reset.scss';

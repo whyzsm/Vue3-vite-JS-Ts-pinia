@@ -81,6 +81,7 @@ const logout = () => {
   z-index: 10;
   width: 100%;
   display: flex;
+  top:0px;
   background: #fff;
   align-items: center;
   box-shadow: 1px 1px 2px 0px rgba(82, 90, 102, 0.04),2px 2px 8px 0px rgba(82, 90, 102, 0.08);
