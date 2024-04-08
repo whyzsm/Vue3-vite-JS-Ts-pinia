@@ -9,7 +9,6 @@ import { searchFormItems } from './Items';
 import { useScanStore } from '../../store/modules/scan';
 const scanStore = useScanStore();
 const { searchParams,reachData } = storeToRefs(scanStore);
-console.log('reachData+++++',reachData?.value)
 const onSearch = async(values: any) => {
   console.log('父组件接受子组件', values);
   await scanStore.getData(values)
