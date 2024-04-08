@@ -14,12 +14,6 @@ const onSearch = async(values: any) => {
   await scanStore.getData(values)
 };
 const handleClear = (resetFields:any) => {
-  // resetFields
-  // scanStore.updateName();
-  // scanStore.$reset();
-  // console.log('searchParams__++', searchParams);
-  // scanStore.searchClean(searchParams);
-  // console.log('formRef', formRef);
 };
 </script>
 <style>

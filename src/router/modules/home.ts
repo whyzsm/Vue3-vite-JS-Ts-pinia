@@ -9,7 +9,7 @@ const Home = {
     {
       path: '/home',
       name: 'Home',
-      component: () => import('@/views/home/index.vue'),
+      component: () => import('@/views/Home/index.vue'),
       meta: {
         title: 'home',
         keepAlive: false
